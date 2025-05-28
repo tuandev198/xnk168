@@ -5,10 +5,35 @@ import FadeIn from "@/components/FadeIn";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 
+import BannerSlider from "../../components/BannerSlider";
+
+import LatestBlog from "@/components/LatestBlog";
+import ProductGrid from "@/components/ProductGrid";
+
+
+const slides = [
+  {
+    id: 1,
+    imageUrl: '/images/whiteboard.jpg',
+    title: 'Khuyến mãi lớn!',
+    description: 'Giảm giá lên đến 50% toàn bộ sản phẩm.',
+  },
+  {
+    id: 2,
+    imageUrl: '/images/whiteboard.jpg',
+    title: 'Hàng mới về',
+    description: 'Khám phá bộ sưu tập xuân hè 2025.',
+  },
+  {
+    id: 3,
+    imageUrl: '/images/whiteboard.jpg',
+  },
+];
 export default function Home() {
     return (
         <main className="text-black">
             <Container className="mt-24 sm:mt-32">
+             <BannerSlider slides={slides} />
                 <FadeIn className="max-w-3xl">
                     <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
                         Make your online presence a reality with us!
@@ -21,6 +46,8 @@ export default function Home() {
                 </FadeIn>
             </Container>
             <Clients />
+            <ProductGrid />
+
             <Testimonials
                 className="mt-24 sm:mt-32 lg:mt-40"
                 client={{ name: "Phobia"}}
@@ -30,6 +57,7 @@ export default function Home() {
                 those annoying permission dialogs.
             </Testimonials>
             <Services />
+            <LatestBlog />
             <ContactSection />
         </main>
     );
