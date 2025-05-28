@@ -10,7 +10,7 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ spanDesign }) => {
   return (
       <span>
-        <span className={cn("text-primary", spanDesign)}>168</span>
+        <span className={cn("text-primary", spanDesign)}>xuatnhapkhau168</span>
       </span>
   );
 };
