@@ -13,7 +13,6 @@ import ProductGrid from "@/components/ProductGrid";
 import ProductCategories from "@/components/ProductCategories";
 import ProductXuiloin from "@/components/ProductXuiloin";
 
-import HomeBanner from "../../components/HomeBanner";
 
 export default function Home() {
     return (
@@ -32,7 +31,6 @@ export default function Home() {
                 </FadeIn>
             </Container>
       <ProductCategories />
-      {/* <HomeBanner /> */}
       <ProductXuiloin />
             <Clients />
       <ProductXuiloin />
