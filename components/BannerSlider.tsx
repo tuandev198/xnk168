@@ -9,23 +9,34 @@ import 'swiper/css/navigation';
 
 import Image from 'next/image';
 
-interface Slide {
-  id: number;
-  imageUrl: string;
-  title?: string;
-  description?: string;
-}
 
-interface BannerSliderProps {
-  slides: Slide[];
-}
 
-export default function BannerSlider({ slides }: BannerSliderProps) {
+
+export default function BannerSlider() {  
+
+  const slides = [
+  {
+    id: 1,
+   imageUrl: '/images/whiteboard.jpg',
+    title: 'Make your online',
+    description: 'GMake your online presence a reality with us!',
+  },
+  {
+    id: 2,
+    imageUrl: '/images/whiteboard.jpg',
+    title: 'Make your online',
+    description: 'Make your online presence a reality with us!',
+  },
+  {
+    id: 3,
+imageUrl: '/images/whiteboard.jpg',
+  },
+];
   return (
     <div className="w-full max-w-screen-xl mx-auto">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation
         loop

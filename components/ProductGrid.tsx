@@ -15,16 +15,14 @@ const ProductGrid = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedTab, setSelectedTab] = useState(productType[0]?.title || "");
-  const query = `*[_type == "product" && variant == $variant] | order(name asc){
-  ...,"categories": categories[]->title
-}`;
+  const query = `*[_type == "product" `;
   const params = { variant: selectedTab.toLowerCase() };
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await client.fetch(query, params);
+        const response = await client.fetch(query);
         setProducts(await response);
       } catch (error) {
         console.log("Product fetching Error", error);

@@ -10,33 +10,16 @@ import BannerSlider from "../../components/BannerSlider";
 import LatestBlog from "@/components/LatestBlog";
 import ProductGrid from "@/components/ProductGrid";
 
-import HomeBanner from "@/components/HomeBanner";
-import ShopByBrands from "@/components/ShopByBrands";
+import ProductCategories from "@/components/ProductCategories";
+import ProductXuiloin from "@/components/ProductXuiloin";
 
+import HomeBanner from "../../components/HomeBanner";
 
-const slides = [
-  {
-    id: 1,
-    imageUrl: '/images/whiteboard.jpg',
-    title: 'Khuyến mãi lớn!',
-    description: 'Giảm giá lên đến 50% toàn bộ sản phẩm.',
-  },
-  {
-    id: 2,
-    imageUrl: '/images/whiteboard.jpg',
-    title: 'Hàng mới về',
-    description: 'Khám phá bộ sưu tập xuân hè 2025.',
-  },
-  {
-    id: 3,
-    imageUrl: '/images/whiteboard.jpg',
-  },
-];
 export default function Home() {
     return (
         <main className="text-black">
             <Container className="mt-24 sm:mt-32">
-             <BannerSlider slides={slides} />
+             <BannerSlider />
                 <FadeIn className="max-w-3xl">
                     <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
                         Make your online presence a reality with us!
@@ -48,12 +31,14 @@ export default function Home() {
                     </p>
                 </FadeIn>
             </Container>
-
-            <HomeBanner />
+      <ProductCategories />
+      {/* <HomeBanner /> */}
+      <ProductXuiloin />
             <Clients />
+      <ProductXuiloin />
             <ProductGrid />
 
-      <ShopByBrands />
+            
             
             <Testimonials
                 className="mt-24 sm:mt-32 lg:mt-40"
