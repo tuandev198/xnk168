@@ -1,5 +1,4 @@
 "use client";
-import { BRANDS_QUERYResult, Category, Product } from "@/sanity.types";
 import React, { useEffect, useState } from "react";
 import Container from "./Container";
 import Title from "./Title";
@@ -10,16 +9,13 @@ import { Loader2 } from "lucide-react";
 import NoProductAvailable from "./NoProductAvailable";
 import ProductCard from "./ProductCard";
 
-interface Props {
-  categories: Category[];
-  brands: BRANDS_QUERYResult;
-}
-const Shop = ({ categories, brands }: Props) => {
+
+const Shop = () => {
   const searchParams = useSearchParams();
   const brandParams = searchParams?.get("brand");
   const categoryParams = searchParams?.get("category");
-  const [products, setProducts] = useState<Product[]>([]);
-   const [productss, setProductss] = useState<Product[]>([]);
+  const [products, setProducts] = useState([]);
+const [categories, setProductss] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     categoryParams || null
@@ -33,7 +29,7 @@ const Shop = ({ categories, brands }: Props) => {
     try {
       let minPrice = 0;
       let maxPrice = 10000;
-      if (selectedPrice) {
+      if (selectedPrice) {  
         const [min, max] = selectedPrice.split("-").map(Number);
         minPrice = min;
         maxPrice = max;
@@ -131,7 +127,7 @@ const Shop = ({ categories, brands }: Props) => {
             <CategoryList
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
-              categories={productss}
+              categories={categories}
             />
           </div>
           <div className="flex-1 pt-5">
@@ -145,8 +141,8 @@ const Shop = ({ categories, brands }: Props) => {
                 </div>
               ) : products?.length > 0 ? (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
-                  {products?.map((product) => (
-                    <ProductCard key={product?._id} product={product} />
+                  {products?.map((product, index) => (
+                    <ProductCard key={index} product={product} />
                   ))}
                 </div>
               ) : (

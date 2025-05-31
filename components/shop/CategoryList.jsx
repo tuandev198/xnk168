@@ -1,7 +1,4 @@
-
-
 import React, { useState, useEffect, useMemo } from "react";
-import Title from "../Title";
 import {
   Accordion,
   AccordionContent,
@@ -11,22 +8,11 @@ import {
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
 
-interface Category {
-  variant: string;
-  categories: any;
-}
-
-interface Props {
-  selectedCategory?: string | null;
-  categories: Category[];
-  setSelectedCategory: React.Dispatch<React.SetStateAction<string | null>>;
-}
-
 const CategoryList = ({
   selectedCategory,
   setSelectedCategory,
   categories,
-}: Props) => {
+}) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,27 +25,21 @@ const CategoryList = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Gộp các categories theo variant và loại bỏ trùng lặp
+  // Nhóm và loại trùng categories theo variant
   const groupedCategories = useMemo(() => {
-    const map = new Map<string, string[]>();
+    const map = new Map();
 
     categories.forEach(({ variant, categories: cats }) => {
-      if (map.has(variant)) {
-        const existingCats = map.get(variant)!;
-        const mergedCats = [...new Set([...existingCats, ...cats])];
-        map.set(variant, mergedCats);
-      } else {
-        map.set(variant, [...cats]);
+      if (!map.has(variant)) {
+        map.set(variant, new Set());
       }
+      cats.forEach((cat) => map.get(variant).add(cat));
     });
 
-
-
-    return Array.from(map.entries()).map(([variant, cats]) => ({
-
+    return Array.from(map.entries()).map(([variant, catsSet]) => ({
       key: variant,
       group: variant,
-      items: cats.map((cat) => ({
+      items: Array.from(catsSet).map((cat) => ({
         key: cat,
         label: cat,
       })),
@@ -85,28 +65,31 @@ const CategoryList = ({
               }}
               className="space-y-2 mt-2 ml-3"
             >
-              {group.items.map((item) => (
-                <div
-                  key={item.key}
-                  className="flex items-center space-x-2 hover:cursor-pointer"
-                >
-                  <RadioGroupItem
-                    value={item.key}
-                    id={item.key}
-                    className="h-4 w-4 border-[1.5px] border-gray-400 data-[state=checked]:border-shop_dark_green data-[state=checked]:bg-shop_dark_green"
-                  />
-                  <Label
-                    htmlFor={item.key}
-                    className={`break-words text-wrap ${
-                      selectedCategory === item.key
-                        ? "font-semibold text-shop_dark_green"
-                        : "font-normal"
-                    }`}
+              {group.items.map((item) => {
+                const inputId = `${group.key}-${item.key}`;
+                return (
+                  <div
+                    key={item.key}
+                    className="flex items-center space-x-2 hover:cursor-pointer"
                   >
-                    {item.label}
-                  </Label>
-                </div>
-              ))}
+                    <RadioGroupItem
+                      value={item.key}
+                      id={inputId}
+                      className="h-4 w-4 border-[1.5px] border-gray-400 data-[state=checked]:border-shop_dark_green data-[state=checked]:bg-shop_dark_green"
+                    />
+                    <Label
+                      htmlFor={inputId}
+                      className={`break-words text-wrap ${
+                        selectedCategory === item.key
+                          ? "font-semibold text-shop_dark_green"
+                          : "font-normal"
+                      }`}
+                    >
+                      {item.label}
+                    </Label>
+                  </div>
+                );
+              })}
             </RadioGroup>
 
             {selectedCategory &&
