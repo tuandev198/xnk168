@@ -10,6 +10,9 @@ import BannerSlider from "../../components/BannerSlider";
 import LatestBlog from "@/components/LatestBlog";
 import ProductGrid from "@/components/ProductGrid";
 
+import HomeBanner from "@/components/HomeBanner";
+import ShopByBrands from "@/components/ShopByBrands";
+
 
 const slides = [
   {
@@ -45,9 +48,13 @@ export default function Home() {
                     </p>
                 </FadeIn>
             </Container>
+
+            <HomeBanner />
             <Clients />
             <ProductGrid />
 
+      <ShopByBrands />
+            
             <Testimonials
                 className="mt-24 sm:mt-32 lg:mt-40"
                 client={{ name: "Phobia"}}

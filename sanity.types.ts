@@ -272,6 +272,13 @@ export type Product = {
     _key: string;
     [internalGroqTypeReferenceTo]?: "category";
   }>;
+  namevariant?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "namevariant";
+  }>;
   stock?: number;
   brand?: {
     _ref: string;
@@ -539,6 +546,7 @@ export type DEAL_PRODUCTSResult = Array<{
   price?: number;
   discount?: number;
   categories: Array<string | null> | null;
+  namevariant: Array<string | null> | null;
   stock?: number;
   brand?: {
     _ref: string;
@@ -546,6 +554,7 @@ export type DEAL_PRODUCTSResult = Array<{
     _weak?: boolean;
     [internalGroqTypeReferenceTo]?: "brand";
   };
+  
   status?: "hot" | "new" | "sale";
   variant?: "appliances" | "gadget" | "others" | "refrigerators";
   isFeatured?: boolean;
@@ -581,6 +590,13 @@ export type PRODUCT_BY_SLUG_QUERYResult = {
     _weak?: boolean;
     _key: string;
     [internalGroqTypeReferenceTo]?: "category";
+  }>;
+  namevariant?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "namevariant";
   }>;
   stock?: number;
   brand?: {

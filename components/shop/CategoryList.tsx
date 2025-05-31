@@ -1,53 +1,171 @@
-import { Category } from "@/sanity.types";
-import React from "react";
+
+
+import React, { useState, useEffect, useMemo } from "react";
 import Title from "../Title";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../ui/accordion";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
 
+interface Category {
+  variant: string;
+  categories: any;
+}
+
 interface Props {
-  categories: Category[];
   selectedCategory?: string | null;
+  categories: Category[];
   setSelectedCategory: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 const CategoryList = ({
-  categories,
   selectedCategory,
   setSelectedCategory,
+  categories,
 }: Props) => {
-  return (
-    <div className="w-full bg-white p-5">
-      <Title className="text-base font-black">Product Categories</Title>
-      <RadioGroup value={selectedCategory || ""} className="mt-2 space-y-1">
-        {categories?.map((category) => (
-          <div
-            onClick={() => {
-              setSelectedCategory(category?.slug?.current as string);
-            }}
-            key={category?._id}
-            className="flex items-center space-x-2 hover:cursor-pointer"
-          >
-            <RadioGroupItem
-              value={category?.slug?.current as string}
-              id={category?.slug?.current}
-              className="rounded-sm"
-            />
-            <Label
-              htmlFor={category?.slug?.current}
-              className={`${selectedCategory === category?.slug?.current ? "font-semibold text-shop_dark_green" : "font-normal"}`}
+  const [isMobile, setIsMobile] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Gộp các categories theo variant và loại bỏ trùng lặp
+  const groupedCategories = useMemo(() => {
+    const map = new Map<string, string[]>();
+
+    categories.forEach(({ variant, categories: cats }) => {
+      if (map.has(variant)) {
+        const existingCats = map.get(variant)!;
+        const mergedCats = [...new Set([...existingCats, ...cats])];
+        map.set(variant, mergedCats);
+      } else {
+        map.set(variant, [...cats]);
+      }
+    });
+
+
+
+    return Array.from(map.entries()).map(([variant, cats]) => ({
+
+      key: variant,
+      group: variant,
+      items: cats.map((cat) => ({
+        key: cat,
+        label: cat,
+      })),
+    }));
+  }, [categories]);
+
+  const accordionContent = (
+    <Accordion
+      type="multiple"
+      className="mt-4 space-y-2 max-h-[60vh] overflow-y-auto"
+    >
+      {groupedCategories.map((group) => (
+        <AccordionItem key={group.key} value={group.group}>
+          <AccordionTrigger className="text-sm font-bold text-left uppercase transition-colors duration-300 data-[state=open]:text-shop_dark_green">
+            {group.group}
+          </AccordionTrigger>
+          <AccordionContent>
+            <RadioGroup
+              value={selectedCategory || ""}
+              onValueChange={(val) => {
+                setSelectedCategory(val.toLowerCase());
+                if (isMobile) setIsOpen(false);
+              }}
+              className="space-y-2 mt-2 ml-3"
             >
-              {category?.title}
-            </Label>
-          </div>
-        ))}
-      </RadioGroup>
-      {selectedCategory && (
-        <button
-          onClick={() => setSelectedCategory(null)}
-          className="text-sm font-medium mt-2 underline underline-offset-2 decoration-[1px] hover:text-shop_dark_green hoverEffect text-left"
-        >
-          Reset selection
-        </button>
+              {group.items.map((item) => (
+                <div
+                  key={item.key}
+                  className="flex items-center space-x-2 hover:cursor-pointer"
+                >
+                  <RadioGroupItem
+                    value={item.key}
+                    id={item.key}
+                    className="h-4 w-4 border-[1.5px] border-gray-400 data-[state=checked]:border-shop_dark_green data-[state=checked]:bg-shop_dark_green"
+                  />
+                  <Label
+                    htmlFor={item.key}
+                    className={`break-words text-wrap ${
+                      selectedCategory === item.key
+                        ? "font-semibold text-shop_dark_green"
+                        : "font-normal"
+                    }`}
+                  >
+                    {item.label}
+                  </Label>
+                </div>
+              ))}
+            </RadioGroup>
+
+            {selectedCategory &&
+              group.items.some((i) => i.key === selectedCategory) && (
+                <button
+                  onClick={() => setSelectedCategory(null)}
+                  className="mt-3 ml-3 text-xs text-red-500 underline"
+                >
+                  Bỏ chọn
+                </button>
+              )}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  );
+
+  return (
+    <div className="w-full bg-white p-4 sm:p-5">
+      {isMobile ? (
+        <>
+          <button
+            onClick={() => setIsOpen(true)}
+            className="mt-4 w-full rounded border border-shop_dark_green bg-shop_dark_green px-4 py-2 text-white"
+          >
+            Chọn danh mục
+          </button>
+
+          {isOpen && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+              onClick={() => setIsOpen(false)}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="category-modal-title"
+            >
+              <div
+                className="bg-white rounded-lg p-4 max-w-md w-full max-h-[80vh] overflow-y-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <h3 id="category-modal-title" className="text-lg font-bold">
+                    Chọn danh mục
+                  </h3>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="text-xl font-bold leading-none"
+                    aria-label="Đóng modal"
+                  >
+                    &times;
+                  </button>
+                </div>
+                {accordionContent}
+              </div>
+            </div>
+          )}
+        </>
+      ) : (
+        <div className="mt-4 max-h-[80vh] overflow-y-auto">{accordionContent}</div>
       )}
     </div>
   );

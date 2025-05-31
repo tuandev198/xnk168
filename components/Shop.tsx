@@ -5,8 +5,6 @@ import Container from "./Container";
 import Title from "./Title";
 import CategoryList from "./shop/CategoryList";
 import { useSearchParams } from "next/navigation";
-import BrandList from "./shop/BrandList";
-import PriceList from "./shop/PriceList";
 import { client } from "@/sanity/lib/client";
 import { Loader2 } from "lucide-react";
 import NoProductAvailable from "./NoProductAvailable";
@@ -21,6 +19,7 @@ const Shop = ({ categories, brands }: Props) => {
   const brandParams = searchParams?.get("brand");
   const categoryParams = searchParams?.get("category");
   const [products, setProducts] = useState<Product[]>([]);
+   const [productss, setProductss] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     categoryParams || null
@@ -39,11 +38,9 @@ const Shop = ({ categories, brands }: Props) => {
         minPrice = min;
         maxPrice = max;
       }
-      const query = `
+      const query = ` 
       *[_type == 'product' 
         && (!defined($selectedCategory) || references(*[_type == "category" && slug.current == $selectedCategory]._id))
-        && (!defined($selectedBrand) || references(*[_type == "brand" && slug.current == $selectedBrand]._id))
-        && price >= $minPrice && price <= $maxPrice
       ] 
       | order(name asc) {
         ...,"categories": categories[]->title
@@ -62,16 +59,56 @@ const Shop = ({ categories, brands }: Props) => {
     }
   };
 
+  const fetchProductss = async () => {
+    setLoading(true);
+    try {
+      let minPrice = 0;
+      let maxPrice = 10000;
+      if (selectedPrice) {
+        const [min, max] = selectedPrice.split("-").map(Number);
+        minPrice = min;
+        maxPrice = max;
+      }
+      const query = ` 
+      *[_type == 'product' 
+        && (!defined($selectedCategory) || references(*[_type == "category" && slug.current == $selectedCategory]._id))
+        && (!defined($selectedBrand) || references(*[_type == "brand" && slug.current == $selectedBrand]._id))
+        && price >= $minPrice && price <= $maxPrice
+      ] 
+      | order(name asc) {
+        ...,"categories": categories[]->title
+      }
+    `;
+      const data = await client.fetch(
+        query,
+        { selectedCategory, selectedBrand, minPrice, maxPrice },
+        { next: { revalidate: 0 } }
+      );
+      setProductss(data);
+      console.log(data);
+    } catch (error) {
+      console.log("Shop product fetching Error", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    fetchProductss();
+  }, []);
   useEffect(() => {
     fetchProducts();
   }, [selectedCategory, selectedBrand, selectedPrice]);
+
   return (
     <div className="border-t">
       <Container className="mt-5">
         <div className="sticky top-0 z-10 mb-5">
           <div className="flex items-center justify-between">
             <Title className="text-lg uppercase tracking-wide">
-              Get the products as your needs
+              Get the products
+            </Title>
+            <Title className="text-lg uppercase tracking-wide">
+              {selectedCategory}
             </Title>
             {(selectedCategory !== null ||
               selectedBrand !== null ||
@@ -92,18 +129,9 @@ const Shop = ({ categories, brands }: Props) => {
         <div className="flex flex-col md:flex-row gap-5 border-t border-t-shop_dark_green/50">
           <div className="md:sticky md:top-20 md:self-start md:h-[calc(100vh-160px)] md:overflow-y-auto md:min-w-64 pb-5 md:border-r border-r-shop_btn_dark_green/50 scrollbar-hide">
             <CategoryList
-              categories={categories}
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
-            />
-            <BrandList
-              brands={brands}
-              setSelectedBrand={setSelectedBrand}
-              selectedBrand={selectedBrand}
-            />
-            <PriceList
-              setSelectedPrice={setSelectedPrice}
-              selectedPrice={selectedPrice}
+              categories={productss}
             />
           </div>
           <div className="flex-1 pt-5">
@@ -133,3 +161,4 @@ const Shop = ({ categories, brands }: Props) => {
 };
 
 export default Shop;
+  
