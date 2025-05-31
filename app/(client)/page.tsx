@@ -30,13 +30,16 @@ export default function Home() {
                     </p>
                 </FadeIn>
             </Container>
-      <ProductCategories />
-      <ProductXuiloin />
+            <Container className="mt-24 sm:mt-32">
+                <ProductCategories />
+                <ProductXuiloin />
+            </Container>
             <Clients />
-      <ProductXuiloin />
+            <Container className="mt-24 sm:mt-32">
+            <ProductXuiloin />
             <ProductGrid />
 
-            
+            </Container>
             
             <Testimonials
                 className="mt-24 sm:mt-32 lg:mt-40"
@@ -47,7 +50,9 @@ export default function Home() {
                 those annoying permission dialogs.
             </Testimonials>
             <Services />
+              <Container className="mt-24 sm:mt-32">
             <LatestBlog />
+            </Container>
             <ContactSection />
         </main>
     );
