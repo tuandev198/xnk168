@@ -31,11 +31,11 @@ export const productType = defineType({
     }),
     defineField({
       name: "description",
-      title: "Description",
-      type: "string",
+      title: "description",
+      type: "blockContent",
     }),
     defineField({
-      name: "price",
+      name: "price", 
       title: "Price",
       type: "number",
       validation: (Rule) => Rule.required().min(0),
@@ -52,12 +52,12 @@ export const productType = defineType({
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }],
     }),
-    defineField({
-      name: "namevariant",
-      title: "namevariant",
-      type: "array",
-      of: [{ type: "reference", to: { type: "namevariant" } }],
-    }),
+    // defineField({
+    //   name: "namevariant",
+    //   title: "namevariant",
+    //   type: "array",
+    //   of: [{ type: "reference", to: { type: "namevariant" } }],
+    // }),
     defineField({
       name: "stock",
       title: "Stock",

@@ -73,7 +73,7 @@ const CategoryList = ({
                     className="flex items-center space-x-2 hover:cursor-pointer"
                   >
                     <RadioGroupItem
-                      value={item.key}
+                      value={item.key.toLowerCase()}
                       id={inputId}
                       className="h-4 w-4 border-[1.5px] border-gray-400 data-[state=checked]:border-shop_dark_green data-[state=checked]:bg-shop_dark_green"
                     />
@@ -93,12 +93,12 @@ const CategoryList = ({
             </RadioGroup>
 
             {selectedCategory &&
-              group.items.some((i) => i.key === selectedCategory) && (
+              group.items.some((i) => i.key.toLowerCase() === selectedCategory) && (
                 <button
                   onClick={() => setSelectedCategory(null)}
                   className="mt-3 ml-3 text-xs text-red-500 underline"
                 >
-                  Bỏ chọn
+                  Deselect
                 </button>
               )}
           </AccordionContent>

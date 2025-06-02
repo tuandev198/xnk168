@@ -32,7 +32,7 @@ const SingleProductPage = async ({
         <div className="space-y-1">
           <h2 className="text-2xl font-bold">{product?.name}</h2>
           <p className="text-sm text-gray-600 tracking-wide">
-            {product?.description}
+            {/* {product?.description} */}
           </p>
           <div className="flex items-center gap-0.5 text-xs">
             {[...Array(5)].map((_, index) => (

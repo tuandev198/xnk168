@@ -4,10 +4,10 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - Xnk online store",
-    default: "Xnk online store",
+    template: "%s - Xuatnhapkhau628.com",
+    default: "Xuatnhapkhau628.com",
   },
-  description: "Xnk online store, Your one stop shop for all your needs",
+  description: "Xuatnhapkhau628.com, Your one stop shop for all your needs",
 };
 
 export default function RootLayout({
