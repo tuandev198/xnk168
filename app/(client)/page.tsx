@@ -13,12 +13,14 @@ import ProductGrid from "@/components/ProductGrid";
 import ProductCategories from "@/components/ProductCategories";
 import ProductXuiloin from "@/components/ProductXuiloin";
 
+import ProductColextion from "@/components/ProductColextion";
+
 
 export default function Home() {
     return (
         <main className="text-black">
-            <Container className="mt-24 sm:mt-32">
-             <BannerSlider />
+            {/* <Container className="">
+             
                 <FadeIn className="max-w-3xl">
                     <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
                         Make your online presence a reality with us!
@@ -29,7 +31,8 @@ export default function Home() {
                         our staff have been involved in hit and runs.
                     </p>
                 </FadeIn>
-            </Container>
+            </Container> */}
+            <BannerSlider />
             <Container className="mt-24 sm:mt-32">
                 <ProductCategories />
                 <ProductXuiloin />
@@ -38,6 +41,9 @@ export default function Home() {
             <Container className="mt-24 sm:mt-32">
             <ProductXuiloin />
             <ProductGrid />
+
+            <ProductColextion cx={"All Kinds of Candies and Snacks"}/>
+            <ProductColextion cx={"Mother and Baby Products"}/>
 
             </Container>
             

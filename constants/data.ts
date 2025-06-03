@@ -25,8 +25,8 @@ export const categoriesData = [
   { title: "gadget accessories", href: "gadget-accessories" },
 ];
 export const productType = [
-  { title: "Gadget", value: "gadget" },
-  { title: "Appliances", value: "appliances" },
-  { title: "Refrigerators", value: "refrigerators" },
-  { title: "Others", value: "others" },
+  { title: "Mother and Baby Products", value: "Mother and Baby Products" },
+  { title: "Noodles, Vermicelli, Porridge, Pho", value: "Noodles, Vermicelli, Porridge, Pho" },
+  { title: "All Kinds of Candies and Snacks", value: "All Kinds of Candies and Snacks" },
+  { title: "Household Items", value: "Household Items" },
 ];

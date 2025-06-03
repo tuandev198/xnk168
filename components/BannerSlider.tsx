@@ -1,4 +1,3 @@
-// components/BannerSlider.tsx
 'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,52 +8,58 @@ import 'swiper/css/navigation';
 
 import Image from 'next/image';
 
-
-
-
-export default function BannerSlider() {  
-
+export default function BannerSlider() {
   const slides = [
-  {
-    id: 1,
-   imageUrl: '/images/whiteboard.jpg',
-    title: 'Make your online',
-    description: 'GMake your online presence a reality with us!',
-  },
-  {
-    id: 2,
-    imageUrl: '/images/whiteboard.jpg',
-    title: 'Make your online',
-    description: 'Make your online presence a reality with us!',
-  },
-  {
-    id: 3,
-imageUrl: '/images/whiteboard.jpg',
-  },
-];
+    {
+      id: 1,
+      imageUrl: '/images/banner.jpg',
+      title: 'Make your online',
+      description: 'Make your online presence a reality with us!',
+    },
+    {
+      id: 2,
+      imageUrl: '/images/banner.jpg',
+      title: 'Creative Solutions',
+      description: 'Your digital success starts here.',
+    },
+    {
+      id: 3,
+      imageUrl: '/images/banner.jpg',
+      title: 'Boost Your Brand',
+      description: 'Let’s build something great together.',
+    },
+  ];
+
   return (
-    <div className="w-full max-w-screen-xl mx-auto">
+    <div className="w-full">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation
         loop
-        className="rounded-xl overflow-hidden"
+        className="w-full h-full"
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="relative w-full h-[400px]">
+            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[600px] lg:h-[700px]">
               <Image
                 src={slide.imageUrl}
-                alt={slide.title || ''}
+                alt={slide.title || 'Banner'}
                 fill
                 className="object-cover"
+                priority
               />
               {(slide.title || slide.description) && (
-                <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-                  {slide.title && <h2 className="text-2xl font-bold">{slide.title}</h2>}
-                  {slide.description && <p>{slide.description}</p>}
+                <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4 sm:p-6">
+                  {slide.title && (
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">
+                      {slide.title}
+                    </h2>
+                  )}
+                  {slide.description && (
+                    <p className="text-sm sm:text-base">{slide.description}</p>
+                  )}
                 </div>
               )}
             </div>

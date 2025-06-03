@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(client)/deal/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(client)/deal/page.jsx", "components/Shop.jsx", "components/Shop.jsx", "components/shop/CategoryList.jsx", "components/Shop.jsx", "components/Shop.jsx", "components/HomeCategories.jsx"],
   "exclude": ["node_modules"]
 }
