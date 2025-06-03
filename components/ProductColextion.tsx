@@ -8,17 +8,17 @@ import NoProductAvailable from "./NoProductAvailable";
 import { Loader2 } from "lucide-react";
 import Container from "./Container";
 import { Product } from "@/sanity.types";
-
 import Title from "./Title";
 
-const ProductColextion = ( { cx }: { cx: string }) => {
+const ProductColextion = ({ cx }: { cx: string }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
-  const [selectedTab, setSelectedTab] = useState(cx);
+
+  const selectedTab = cx; // ✅ Không dùng useState
   const query = `*[_type == "product" && variant == $variant ] | order(name asc){
-  ...,"categories": categories[]->title
-}`;
-  const params = { variant: selectedTab};
+    ...,"categories": categories[]->title
+  }`;
+  const params = { variant: selectedTab };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,13 +32,13 @@ const ProductColextion = ( { cx }: { cx: string }) => {
         setLoading(false);
       }
     };
-    fetchData();
-  }, []);
 
+    fetchData();
+  }, [query, params]); // ✅ Thêm dependencies
 
   return (
     <Container className="flex flex-col lg:px-0 my-10">
-        <Title> {selectedTab}</Title>
+      <Title>{selectedTab}</Title>
       {loading ? (
         <div className="flex flex-col items-center justify-center py-10 min-h-80 space-y-4 text-center bg-gray-100 rounded-lg w-full mt-10">
           <motion.div className="flex items-center space-x-2 text-blue-600">
