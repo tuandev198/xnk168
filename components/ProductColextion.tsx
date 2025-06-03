@@ -14,18 +14,17 @@ const ProductColextion = ({ cx }: { cx: string }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const selectedTab = cx; // ✅ Không dùng useState
-  const query = `*[_type == "product" && variant == $variant ] | order(name asc){
-    ...,"categories": categories[]->title
-  }`;
-  const params = { variant: selectedTab };
-
   useEffect(() => {
+    const query = `*[_type == "product" && variant == $variant ] | order(name asc){
+      ...,"categories": categories[]->title
+    }`;
+    const params = { variant: cx };
+
     const fetchData = async () => {
       setLoading(true);
       try {
         const response = await client.fetch(query, params);
-        setProducts(await response);
+        setProducts(response); // không cần await nếu response không phải promise
       } catch (error) {
         console.log("Product fetching Error", error);
       } finally {
@@ -34,11 +33,11 @@ const ProductColextion = ({ cx }: { cx: string }) => {
     };
 
     fetchData();
-  }, [query, params]); // ✅ Thêm dependencies
+  }, [cx]); // ✅ chỉ chạy lại khi cx thay đổi
 
   return (
     <Container className="flex flex-col lg:px-0 my-10">
-      <Title>{selectedTab}</Title>
+      <Title>{cx}</Title>
       {loading ? (
         <div className="flex flex-col items-center justify-center py-10 min-h-80 space-y-4 text-center bg-gray-100 rounded-lg w-full mt-10">
           <motion.div className="flex items-center space-x-2 text-blue-600">
@@ -48,23 +47,21 @@ const ProductColextion = ({ cx }: { cx: string }) => {
         </div>
       ) : products?.length ? (
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 mt-10">
-          <>
-            {products?.map((product) => (
-              <AnimatePresence key={product?._id}>
-                <motion.div
-                  layout
-                  initial={{ opacity: 0.2 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <ProductCard key={product?._id} product={product} />
-                </motion.div>
-              </AnimatePresence>
-            ))}
-          </>
+          {products.map((product) => (
+            <AnimatePresence key={product._id}>
+              <motion.div
+                layout
+                initial={{ opacity: 0.2 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <ProductCard key={product._id} product={product} />
+              </motion.div>
+            </AnimatePresence>
+          ))}
         </div>
       ) : (
-        <NoProductAvailable selectedTab={selectedTab} />
+        <NoProductAvailable selectedTab={cx} />
       )}
     </Container>
   );
