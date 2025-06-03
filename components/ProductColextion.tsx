@@ -7,8 +7,6 @@ import { client } from "@/sanity/lib/client";
 import NoProductAvailable from "./NoProductAvailable";
 import { Loader2 } from "lucide-react";
 import Container from "./Container";
-import HomeTabbar from "./HomeTabbar";
-import { productType } from "@/constants/data";
 import { Product } from "@/sanity.types";
 
 import Title from "./Title";
