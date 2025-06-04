@@ -59,7 +59,7 @@ export default function ProductSlider() {
   return (
     <div className="w-full px-4">
       <h2 className="text-2xl font-bold text-center text-[#0061ff] mb-6">
-        DANH MỤC SẢN PHẨM
+        PRODUCT LIST
       </h2>
       <div ref={sliderRef} className="keen-slider">
         {categories.map((cat, index) => (

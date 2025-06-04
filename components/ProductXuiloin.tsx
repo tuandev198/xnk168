@@ -100,7 +100,7 @@ const products: Product[] = [
 const ProductXuiloin = () => {
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold text-[#0061ff] mb-4">ĐẶC SẢN TƯƠI NGON</h2>
+      <h2 className="text-2xl font-bold text-[#0061ff] mb-4">FRESH SPECIALTIES</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {products.map((product, idx) => (
           <div key={idx} className="border rounded-md p-2 text-center relative bg-white">
