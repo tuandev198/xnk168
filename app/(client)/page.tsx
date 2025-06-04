@@ -43,7 +43,7 @@ export default function Home() {
             <Container className="mt-24 sm:mt-32">
             <ProductXuiloin />
             <ProductGrid />
-
+                <HomeBanner image={banner_1}/>
             <ProductColextion cx={"All Kinds of Candies and Snacks"}/>
             <HomeBanner image={banner_1}/>
             <ProductColextion cx={"Mother and Baby Products"}/>
