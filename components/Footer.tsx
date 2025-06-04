@@ -18,8 +18,10 @@ const Footer = () => {
           <div className="space-y-4">
             <Logo />
             <SubText>
-              Discover curated furniture collections at Xnk, blending
-              style and comfort to elevate your living spaces.
+              CÔNG TY TNHH SẢN XUẤT DỊCH VỤ THƯƠNG MẠI XUẤT NHẬP KHẨU 628 <br/>
+MST: 0313578039<br/>
+Email: ctytnhhsxdvtmxnk628@gmail.com<br/>
+Hotline: +84 0313 578 039
             </SubText>
             <SocialMedia
               className="text-darkColor/60"
