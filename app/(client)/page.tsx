@@ -59,10 +59,11 @@ export default function Home() {
                 finding a way to access the user microphone without triggering one of
                 those annoying permission dialogs.
             </Testimonials>
-            <Services />
-              <Container className="mt-24 sm:mt-32">
-            <LatestBlog />
+            <Container className="mt-24 sm:mt-32">
+                <LatestBlog />
             </Container>
+            <Services />
+            
             <ContactSection />
         </main>
     );
