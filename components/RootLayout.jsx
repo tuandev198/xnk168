@@ -112,7 +112,7 @@ const RootLayoutInner = ({ children }) => {
         <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
             <header>
                 <div
-                    className="absolute left-0 right-0 top-2 z-40 pt-14"
+                    className="absolute left-0 right-0 top-2 z-40 "
                     aria-hidden={expanded ? "true" : undefined}
                     {...(!expanded && { inert: true })}
                 >
@@ -183,9 +183,9 @@ const RootLayoutInner = ({ children }) => {
             <motion.div
                 layout
                 style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-                className="relative flex flex-auto overflow-hidden bg-white pt-14"
+                className="relative flex flex-auto overflow-hidden bg-white "
             >
-                <motion.div layout className="relative isolate flex w-full flex-col pt-9">
+                <motion.div layout className="relative isolate flex w-full flex-col">
                     <main className="w-full flex-auto">{children}</main>
                     <Footer />
                 </motion.div>

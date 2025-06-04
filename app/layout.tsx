@@ -22,7 +22,7 @@ export default function Layout({ children }: LayoutProps) {
             className="h-full bg-neutral-950 text-base antialiased text-neutral-100"
         >
         <body className="flex min-h-full flex-col">
-        <RootLayout>{children}</RootLayout>
+            <RootLayout>{children}</RootLayout>
         </body>
         </html>
     );
