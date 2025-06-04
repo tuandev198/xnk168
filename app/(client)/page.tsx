@@ -10,7 +10,7 @@ import LatestBlog from "@/components/LatestBlog";
 import ProductGrid from "@/components/ProductGrid";
 
 import ProductCategories from "@/components/ProductCategories";
-import ProductXuiloin from "@/components/ProductXuiloin";
+// import ProductXuiloin from "@/components/ProductXuiloin";
 
 import ProductColextion from "@/components/ProductColextion";
 
@@ -37,11 +37,12 @@ export default function Home() {
             <BannerSlider />
             <Container className="mt-24 sm:mt-32">
                 <ProductCategories />
-                <ProductXuiloin />
+                {/* <ProductXuiloin /> */}
+                <ProductColextion cx={"All Kinds of Candies and Snacks"}/>
             </Container>
             <Clients />
             <Container className="mt-24 sm:mt-32">
-            <ProductXuiloin />
+            {/* <ProductXuiloin /> */}
             <ProductGrid />
                 <HomeBanner image={banner_1}/>
             <ProductColextion cx={"All Kinds of Candies and Snacks"}/>
