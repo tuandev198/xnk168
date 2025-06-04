@@ -1,31 +1,23 @@
 import React from "react";
-import { Title } from "./ui/text";
-import Link from "next/link";
 import Image from "next/image";
-import { banner_1 } from "@/images";
 
-const HomeBanner = () => {
+interface HomeBannerProps {
+  image: string;
+}
+
+const HomeBanner: React.FC<HomeBannerProps> = ({ image }) => {
+  if (!image) return null;
+
   return (
-    <div className="py-16 md:py-0 bg-shop_light_pink rounded-lg px-10 lg:px-24 flex items-center justify-between">
-      <div className="space-y-5">
-        <Title>
-          Grab Upto 50% off on <br />
-          Selected headphone
-        </Title>
-        <Link
-          href={"/shop"}
-          className="bg-shop_dark_green/90 text-white/90 px-5 py-2 rounded-md text-sm font-semibold hover:text-white hover:bg-shop_dark_green hoverEffect"
-        >
-          Buy Now
-        </Link>
-      </div>
-      <div>
-        <Image
-          src={banner_1}
-          alt="banner_1"
-          className="hidden md:inline-flex w-96"
-        />
-      </div>
+    <div className="relative w-full h-56 sm:h-64 md:h-80 lg:h-96">
+      <Image
+        src={image}
+        alt="Banner chính"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
     </div>
   );
 };

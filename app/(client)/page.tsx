@@ -14,6 +14,9 @@ import ProductXuiloin from "@/components/ProductXuiloin";
 
 import ProductColextion from "@/components/ProductColextion";
 
+import HomeBanner from "@/components/HomeBanner";
+import banner_1 from "../../public/images/banner-1.png";
+
 
 export default function Home() {
     return (
@@ -42,6 +45,7 @@ export default function Home() {
             <ProductGrid />
 
             <ProductColextion cx={"All Kinds of Candies and Snacks"}/>
+            <HomeBanner image={banner_1}/>
             <ProductColextion cx={"Mother and Baby Products"}/>
 
             </Container>

@@ -12,7 +12,7 @@ type Category = {
 
 const categories: Category[] = [
   {
-    title: "SALE MỖI NGÀY",
+    title: "SALE",
     count: 60,
     image: "/images/1.png",
   },
