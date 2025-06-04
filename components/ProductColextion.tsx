@@ -71,7 +71,7 @@ const ProductCollection = ({ cx }: { cx: string }) => {
                 href={`/shop?variant=${encodeURIComponent(cx)}`}
                 className="bg-[#0061ff] text-white py-2 px-4 rounded-full hover:bg-green-700 transition inline-block"
             >
-                Xem thêm →
+                See all
             </Link>
 </div>
         </>

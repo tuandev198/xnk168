@@ -134,7 +134,7 @@ const ProductXuiloin = () => {
       </div>
       <div className="text-center mt-6">
         <button className="bg-[#0061ff] text-white py-2 px-4 rounded-full hover:bg-green-700 transition">
-          Xem thêm →
+          See all
         </button>
       </div>
     </div>

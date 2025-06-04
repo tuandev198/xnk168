@@ -73,8 +73,8 @@ Hotline: +84 0313 578 039
         </div>
         <div className="py-6 border-t text-center text-sm text-gray-600">
           <div>
-            © {new Date().getFullYear()} <Logo className="text-sm" />. All
-            rights reserved.
+             {/* <Logo className="text-sm" /> */}
+            Copyright © {new Date().getFullYear()} cellvn all rights reserved.
           </div>
         </div>
       </Container>
