@@ -44,13 +44,19 @@ export default function Home() {
             <Container className="mt-24 sm:mt-32">
             {/* <ProductXuiloin /> */}
             <ProductGrid />
+            </Container>
                 <HomeBanner image={banner_1}/>
+                <Container className="mt-24 sm:mt-32">
             <ProductColextion cx={"All Kinds of Candies and Snacks"}/>
+            </Container>
             <HomeBanner image={banner_1}/>
+
+            <Container className="mt-24 sm:mt-32">
+
             <ProductColextion cx={"Mother and Baby Products"}/>
 
             </Container>
-            
+             <HomeBanner image={banner_1}/>
             <Testimonials
                 className="mt-24 sm:mt-32 lg:mt-40"
                 client={{ name: "Phobia"}}
