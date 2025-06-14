@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { FaPhoneAlt } from "react-icons/fa";
 
 const Header = () => {

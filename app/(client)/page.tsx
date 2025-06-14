@@ -7,7 +7,6 @@ import Testimonials from "@/components/Testimonials";
 import BannerSlider from "../../components/BannerSlider";
 
 import LatestBlog from "@/components/LatestBlog";
-import ProductGrid from "@/components/ProductGrid";
 
 import ProductCategories from "@/components/ProductCategories";
 // import ProductXuiloin from "@/components/ProductXuiloin";
