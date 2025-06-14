@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion"; // ✅ sửa ở đây
 import { client } from "@/sanity/lib/client";
 import NoProductAvailable from "./NoProductAvailable";
 import { Loader2 } from "lucide-react";
@@ -15,17 +15,19 @@ const ProductGrid = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedTab, setSelectedTab] = useState(productType[0]?.title || "");
+
   const query = `*[_type == "product" && variant == $variant] | order(name asc){
-  ...,"categories": categories[]->title
-}`;
-  const params = { variant: selectedTab};
+    ...,"categories": categories[]->title
+  }`;
+
+  const params = { variant: selectedTab };
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
         const response = await client.fetch(query, params);
-        setProducts(await response);
+        setProducts(response); // Không cần `await` ở đây
       } catch (error) {
         console.log("Product fetching Error", error);
       } finally {
@@ -34,8 +36,6 @@ const ProductGrid = () => {
     };
     fetchData();
   }, [selectedTab]);
-
-  console.log( selectedTab);
 
   return (
     <Container className="flex flex-col lg:px-0 my-10">
@@ -48,21 +48,20 @@ const ProductGrid = () => {
           </motion.div>
         </div>
       ) : products?.length ? (
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 mt-10">
-          <>
-            {products?.map((product) => (
-              <AnimatePresence key={product?._id}>
-                <motion.div
-                  layout
-                  initial={{ opacity: 0.2 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <ProductCard key={product?._id} product={product} />
-                </motion.div>
-              </AnimatePresence>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-10 px-4">
+          <AnimatePresence>
+            {products.map((product) => (
+              <motion.div
+                key={product._id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.2 }}
+              >
+                <ProductCard product={product} />
+              </motion.div>
             ))}
-          </>
+          </AnimatePresence>
         </div>
       ) : (
         <NoProductAvailable selectedTab={selectedTab} />

@@ -3,56 +3,63 @@ import React from "react";
 
 interface ContactItemData {
   title: string;
-  subtitle: string;
+  subtitle: React.ReactNode;
   icon: React.ReactNode;
+  color: string; // thêm thuộc tính màu
 }
 
 const data: ContactItemData[] = [
   {
     title: "Visit Us",
-    subtitle: "58 TÂY THẠNH, PHƯỜNG TÂY THẠNH, QUẬN TÂN PHÚ, TP.HCM",
-    icon: (
-      <MapPin className="h-6 w-6 text-gray-600 group-hover:text-primary transition-colors" />
-    ),
+    subtitle: "7A Vo Van Bich Street, Binh My Ward, Cu Chi District, Ho Chi Minh City, Vietnam",
+    icon: <MapPin className="h-5 w-5" />,
+    color: "text-blue-600", // màu xanh dương
   },
   {
     title: "Call Us",
-    subtitle: "+84 0313 578 039",
-    icon: (
-      <Phone className="h-6 w-6 text-gray-600 group-hover:text-primary transition-colors" />
+    subtitle: (
+      <>
+        +84 901366488 (Quang)
+        <br />
+        +84 938255328 (Tiến)
+      </>
     ),
+    icon: <Phone className="h-5 w-5" />,
+    color: "text-green-600", // màu xanh lá
   },
   {
     title: "Working Hours",
-    subtitle: "Mon - Sat: 08:00 AM - 5:00 PM",
-    icon: (
-      <Clock className="h-6 w-6 text-gray-600 group-hover:text-primary transition-colors" />
-    ),
+    subtitle: "Mon - Sat: 07:00 AM - 17:00 PM",
+    icon: <Clock className="h-5 w-5" />,
+    color: "text-amber-500", // màu cam
   },
   {
     title: "Email Us",
     subtitle: "ctytnhhsxdvtmxnk628@gmail.com",
-    icon: (
-      <Mail className="h-6 w-6 text-gray-600 group-hover:text-primary transition-colors" />
-    ),
+    icon: <Mail className="h-5 w-5" />,
+    color: "text-red-500", // màu đỏ
   },
 ];
 
 const FooterTop = () => {
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 border-b">
-      {data?.map((item, index) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-8 border-b">
+      {data.map((item, index) => (
         <div
           key={index}
-          className="flex items-center gap-3 group hover:bg-gray-50 p-4 transition-colors hoverEffect"
+          className="flex items-start gap-4 group p-4 rounded-xl transition-all"
         >
-          {item?.icon}
+          <div
+            className={`flex items-center justify-center ${item.color} bg-gray-100 rounded-full h-10 w-10`}
+          >
+            {item.icon}
+          </div>
           <div>
-            <h3 className="font-semibold text-gray-900 group-hover:text-black hoverEffect">
-              {item?.title}
+            <h3 className="text-base font-semibold text-gray-800">
+              {item.title}
             </h3>
-            <p className="text-gray-600 text-sm mt-1 group-hover:text-gray-900 hoverEffect">
-              {item?.subtitle}
+            <p className="text-sm text-gray-600 mt-1 leading-relaxed">
+              {item.subtitle}
             </p>
           </div>
         </div>

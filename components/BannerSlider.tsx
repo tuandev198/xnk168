@@ -12,19 +12,19 @@ export default function BannerSlider() {
   const slides = [
     {
       id: 1,
-      imageUrl: '/images/banner.jpg',
+      imageUrl: '/images/banner1.jpg',
       title: 'Make your online',
       description: 'Make your online presence a reality with us!',
     },
     {
       id: 2,
-      imageUrl: '/images/banner.jpg',
+      imageUrl: '/images/banner1.jpg',
       title: 'Creative Solutions',
       description: 'Your digital success starts here.',
     },
     {
       id: 3,
-      imageUrl: '/images/banner.jpg',
+      imageUrl: '/images/banner1.jpg',
       title: 'Boost Your Brand',
       description: 'Let’s build something great together.',
     },
@@ -50,18 +50,6 @@ export default function BannerSlider() {
                 className="object-cover"
                 priority
               />
-              {(slide.title || slide.description) && (
-                <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4 sm:p-6">
-                  {slide.title && (
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">
-                      {slide.title}
-                    </h2>
-                  )}
-                  {slide.description && (
-                    <p className="text-sm sm:text-base">{slide.description}</p>
-                  )}
-                </div>
-              )}
             </div>
           </SwiperSlide>
         ))}

@@ -1,85 +1,61 @@
 "use client";
 
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
+import Link from "next/link";
 
-type Category = {
-  title: string;
-  count: number;
-  image: string;
-};
-
-const categories: Category[] = [
+const categories = [
   {
-    title: "SALE",
-    count: 60,
-    image: "/images/1.png",
+    title: "QUẾ",
+    img: "/images/QUE.jpg",
+    href: "/san-pham/que",
   },
   {
-    title: "Thịt",
-    count: 79,
-    image: "/images/2.png",
+    title: "ỚT HIỂM",
+    img: "/images/OT.jpg",
+    href: "/san-pham/ot-hiem",
   },
   {
-    title: "Cá - Hải sản",
-    count: 43,
-    image: "/images/3.png",
+    title: "BÔNG HỒI",
+    img: "/images/HOAHOI.jpg",
+    href: "/san-pham/bong-hoi",
   },
   {
-    title: "Đồ khô",
-    count: 201,
-    image: "/images/4.png",
-  },
-  {
-    title: "Gia vị",
-    count: 165,
-    image: "/images/5.png",
-  },
-  {
-    title: "Bánh kẹo",
-    count: 82,
-    image: "/images/6.png",
+    title: "THẢO QUẢ",
+    img: "/images/THAOQUA.jpg",
+    href: "/san-pham/thao-qua",
   },
 ];
 
-export default function ProductSlider() {
-  const [sliderRef] = useKeenSlider<HTMLDivElement>({
-    slides: {
-      perView: 3,
-      spacing: 16,
-    },
-    breakpoints: {
-      "(min-width: 768px)": {
-        slides: { perView: 5, spacing: 24 },
-      },
-    },
-  });
-
+const ProductCategories = () => {
   return (
-    <div className="w-full px-4">
-      <h2 className="text-2xl font-bold text-center text-[#0061ff] mb-6">
-        PRODUCT LIST
+    <section className="py-10 bg-white text-center">
+      <h2 className="text-2xl sm:text-3xl font-bold text-[#0061ff] mb-8 uppercase">
+        Product Catalog
       </h2>
-      <div ref={sliderRef} className="keen-slider">
-        {categories.map((cat, index) => (
-          <div
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 px-2 sm:px-4 md:px-10">
+        {categories.map((item, index) => (
+          <Link
             key={index}
-            className="keen-slider__slide bg-[#f8f7f1] rounded-xl shadow p-4 text-center flex flex-col items-center "
+            href={item.href}
+            className="overflow-hidden rounded-xl shadow-md block transition-transform hover:scale-[1.02]"
           >
-            <div className="w-24 h-24 mb-4 relative">
+            <div className="w-full h-32 sm:h-40 md:h-48 relative">
               <Image
-                src={cat.image}
-                alt={cat.title}
+                src={item.img}
+                alt={item.title}
                 fill
-                className="object-contain"
+                className="object-cover rounded-t-xl"
+                sizes="(max-width: 768px) 50vw, 25vw"
               />
             </div>
-            <p className="font-semibold text-lg">{cat.title}</p>
-            <p className="text-sm text-gray-500">{cat.count} mặt hàng</p>
-          </div>
+            <div className="py-2 text-sm sm:text-base font-semibold text-gray-700">
+              {item.title}
+            </div>
+          </Link>
         ))}
       </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default ProductCategories;

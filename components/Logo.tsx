@@ -13,7 +13,7 @@ const Logo: React.FC<LogoProps> = ({ spanDesign }) => {
   return (
       <span>
         <span className={cn("text-primary", spanDesign)}>
-          <Image src="/images/logo.png" alt="Logo" width={100} height={100} />
+          <Image src="/images/logo628.png" alt="Logo" width={100} height={100} />
         </span>
       </span>
   );

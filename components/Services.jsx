@@ -3,7 +3,7 @@ import SectionIntro from "./SectionIntro";
 import Container from "./Container";
 import FadeIn from "./FadeIn";
 import StylizedImage from "./StylizedImage";
-import imageLaptop from "../public/images/dokho.jpg";
+import imageLaptop from "../public/images/slide.jpg";
 import List, { ListItem } from "./List";
 
 const Services = () => {

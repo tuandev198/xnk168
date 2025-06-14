@@ -13,9 +13,10 @@ import ProductCategories from "@/components/ProductCategories";
 // import ProductXuiloin from "@/components/ProductXuiloin";
 
 import ProductColextion from "@/components/ProductColextion";
-
 import HomeBanner from "@/components/HomeBanner";
-import banner_1 from "../../public/images/banner-1.png";
+import banner_1 from "../../public/images/slide.jpg";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import BestProductsSlider from "@/components/BestProductsSlider";
 
 
 export default function Home() {
@@ -34,26 +35,32 @@ export default function Home() {
                     </p>
                 </FadeIn>
             </Container> */}
-            <BannerSlider />
+
+      <BannerSlider />  
+
+
+            {/* <BannerSlider /> */}
             <Container className="mt-24 sm:mt-32">
                 <ProductCategories />
                 {/* <ProductXuiloin /> */}
-                <ProductColextion cx={"All Kinds of Candies and Snacks"}/>
+                {/* <ProductColextion cx={"All Kinds of Candies and Snacks"}/> */}
             </Container>
+            <WhyChooseUs />
+            <BestProductsSlider />
             <Clients />
             <Container className="mt-24 sm:mt-32">
             {/* <ProductXuiloin /> */}
-            <ProductGrid />
+         <ProductColextion cx={"All Kinds of Candies and Snacks"} ct="All Kinds of Milk" title={"TILE A"}/>
             </Container>
                 <HomeBanner image={banner_1}/>
                 <Container className="mt-24 sm:mt-32">
-            <ProductColextion cx={"All Kinds of Candies and Snacks"}/>
+             <ProductColextion cx={"Household Items"} ct="Personal Care" title={"TILE B"}/>
             </Container>
-            <HomeBanner image={banner_1}/>
+            <HomeBanner image={banner_1}/>  
 
             <Container className="mt-24 sm:mt-32">
 
-            <ProductColextion cx={"Mother and Baby Products"}/>
+             <ProductColextion cx={"Household Cleaning"} ct="Beer, Soft Drinks" title={"TILE C"}/>
 
             </Container>
              <HomeBanner image={banner_1}/>
