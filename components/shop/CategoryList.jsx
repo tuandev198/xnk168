@@ -25,17 +25,14 @@ const CategoryList = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Nhóm và loại trùng categories theo variant
   const groupedCategories = useMemo(() => {
     const map = new Map();
-
     categories.forEach(({ variant, categories: cats }) => {
       if (!map.has(variant)) {
         map.set(variant, new Set());
       }
       cats.forEach((cat) => map.get(variant).add(cat));
     });
-
     return Array.from(map.entries()).map(([variant, catsSet]) => ({
       key: variant,
       group: variant,
@@ -49,7 +46,7 @@ const CategoryList = ({
   const accordionContent = (
     <Accordion
       type="multiple"
-      className="mt-4 space-y-2 max-h-[60vh] overflow-y-auto"
+      className="space-y-2 max-h-[60vh] overflow-y-auto"
     >
       {groupedCategories.map((group) => (
         <AccordionItem key={group.key} value={group.group}>
@@ -91,9 +88,10 @@ const CategoryList = ({
                 );
               })}
             </RadioGroup>
-
             {selectedCategory &&
-              group.items.some((i) => i.key.toLowerCase() === selectedCategory) && (
+              group.items.some(
+                (i) => i.key.toLowerCase() === selectedCategory
+              ) && (
                 <button
                   onClick={() => setSelectedCategory(null)}
                   className="mt-3 ml-3 text-xs text-red-500 underline"

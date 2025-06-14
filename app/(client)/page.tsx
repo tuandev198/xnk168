@@ -1,5 +1,5 @@
 import Clients from "@/components/Clients";
-import ContactSection from "@/components/ContactSection";
+// import ContactSection from "@/components/ContactSection";
 import Container from "@/components/Container";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
@@ -76,7 +76,7 @@ export default function Home() {
             </Container>
             <Services />
             
-            <ContactSection />
+            {/* <ContactSection /> */}
         </main>
     );
 }

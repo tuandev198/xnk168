@@ -67,8 +67,8 @@ Hotline: +84 0313 578 039
             </SubText>
             <form className="space-y-3">
               <Input placeholder="Enter your email" type="email" required />
-              <Button className="w-full">Subscribe</Button>
-            </form>
+              <Button className="w-full bg-shop_light_green hover:bg-shop_light_green/80">Subscribe</Button>
+            </form> 
           </div>
         </div>
         <div className="py-6 border-t text-center text-sm text-gray-600">
