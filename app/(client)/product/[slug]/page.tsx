@@ -1,6 +1,6 @@
 // import AddToCartButton from "@/components/AddToCartButton";
 import Container from "@/components/Container";
-import FavoriteButton from "@/components/FavoriteButton";
+// import FavoriteButton from "@/components/FavoriteButton";
 import ImageView from "@/components/ImageView";
 // import PriceView from "@/components/PriceView";
 import ProductCharacteristics from "@/components/ProductCharacteristics";
