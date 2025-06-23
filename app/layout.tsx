@@ -33,7 +33,7 @@ export const metadata = {
     description:
       "Tìm hiểu sâu về chuỗi cung ứng, logistics quốc tế, kinh nghiệm xuất khẩu cá khô, ớt khô từ Việt Nam ra thế giới.",
     url: "https://www.xuatnhapkhau628.com",
-    siteName: "Blog Logistics Cá Khô & Ớt Khô",
+    siteName: "XNK628",
     images: [
       {
         url: "/image/og-image.jpg", // ảnh preview khi chia sẻ

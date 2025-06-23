@@ -7,7 +7,7 @@ export default function Footer() {
     <div>
         <FooterTop/>
 
-    <footer className="bg-[#0061ff] text-white px-8 py-12">
+    <footer className="bg-[#1c59fa] text-white px-8 py-12">
       
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Cột 1 - Thông tin công ty */}

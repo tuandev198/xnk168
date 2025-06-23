@@ -1,8 +1,8 @@
 import { FaPhoneAlt } from "react-icons/fa";
-
+// 0061ff
 const Header = () => {
   return (
-    <header className="bg-[#0061ff] text-white text-[10px] md:text-sm">
+    <header className="bg-[#0648ff] text-white text-[10px] md:text-sm">
       <div className="flex flex-col md:flex-row md:justify-between items-center px-2 py-1 md:px-4 md:py-2 gap-1">
         {/* Ẩn ở mobile, chỉ hiển thị từ md trở lên */}
         <div className="hidden md:flex items-center gap-2">
