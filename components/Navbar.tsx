@@ -15,8 +15,12 @@ const menuItems = [
     title: "PRODUCTS",
     href: "/shop",
     submenu: [
-      { title: "Japanese Eel", href: "/luon-nhat" },
-      { title: "Frozen Eel", href: "/luon-dong-lanh" },
+      { title: "All Kinds of Milk", href: "/shop?=All Kinds of Milk" },
+      { title: "Rice, Flour, Dried Goods", href: "/shop?=luon-nhat" },
+      { title: "Personal Care", href: "/shop?=luon-nhat" },
+      { title: "Household Cleaning", href: "/shop?=luon-nhat" },
+      { title: "Household Items", href: "/shop?=luon-nhat" },
+      { title: "Beer, Soft Drinks", href: "/shop?=luon-nhat" },
     ],
   },
   {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Headers from "@/components/Headers";
 import Navbar from "@/components/Navbar";
 import { ClerkProvider } from "@clerk/nextjs";
+// import "@/i18n";
 
 export const metadata: Metadata = {
   title: {

@@ -1,7 +1,7 @@
 import Clients from "@/components/Clients";
 // import ContactSection from "@/components/ContactSection";
 import Container from "@/components/Container";
-import Services from "@/components/Services";
+// import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 
 import BannerSlider from "../../components/BannerSlider";
@@ -56,13 +56,13 @@ export default function Home() {
              <ProductColextion cx={"Household Items"} ct="Personal Care" title={"TILE B"}/>
             </Container>
             <HomeBanner image={banner_1}/>  
+{/* 
+            <Container className="mt-24 sm:mt-32"> */}
 
-            <Container className="mt-24 sm:mt-32">
+             {/* <ProductColextion cx={"Household Cleaning"} ct="Beer, Soft Drinks" title={"TILE C"}/> */}
 
-             <ProductColextion cx={"Household Cleaning"} ct="Beer, Soft Drinks" title={"TILE C"}/>
-
-            </Container>
-             <HomeBanner image={banner_1}/>
+            {/* </Container>
+             <HomeBanner image={banner_1}/> */}
             <Testimonials
                 className="mt-24 sm:mt-32 lg:mt-40"
                 client={{ name: "Phobia"}}
@@ -74,7 +74,7 @@ export default function Home() {
             <Container className="mt-24 sm:mt-32">
                 <LatestBlog />
             </Container>
-            <Services />
+            {/* <Services /> */}
             
             {/* <ContactSection /> */}
         </main>

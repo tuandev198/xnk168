@@ -8,9 +8,10 @@ import ProductSideMenu from "./ProductSideMenu";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
+    <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02] w-full max-w-[200px]">
       <Link href={`/product/${product?.slug?.current}`}>
-        <div className="w-full h-32 sm:h-40 md:h-48 relative">
+        {/* Container có aspect-square để luôn vuông */}
+        <div className="relative aspect-square w-full">
           <Image
             src={urlFor(product.images?.[0]).url()}
             alt={product.name || "productImage"}
@@ -21,17 +22,17 @@ const ProductCard = ({ product }: { product: Product }) => {
         </div>
       </Link>
 
-      <div className="p-3 flex flex-col gap-2">
+      {/* Tên sản phẩm */}
+      <div className="p-2">
         <div className="text-sm sm:text-base font-semibold text-[#7f2a0c] line-clamp-2">
           {product.name}
         </div>
-
       </div>
 
-      {/* Tuỳ chọn: Hiển thị menu popup bên góc sản phẩm */}
       <ProductSideMenu product={product} />
     </div>
   );
 };
+
 
 export default ProductCard;

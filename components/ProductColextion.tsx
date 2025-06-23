@@ -2,9 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Grid } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/grid";
 
 import { client } from "@/sanity/lib/client";
 import { Product } from "@/sanity.types";
@@ -17,20 +18,18 @@ import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
 
-// ✅ Define props
 interface ProductCollectionProps {
   cx: string;
   ct: string;
   title: string;
 }
 
-const ProductCollection = ({ cx, ct, title }: ProductCollectionProps) => {
+const ProductCollection = ({ cx, ct }: ProductCollectionProps) => {
   const tabs = [cx, ct];
   const [selectedTab, setSelectedTab] = useState<string>(cx);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // ✅ Fetch product data
   useEffect(() => {
     const query = `*[_type == "product" && variant == $variant ] | order(name asc){
       ...,
@@ -59,7 +58,7 @@ const ProductCollection = ({ cx, ct, title }: ProductCollectionProps) => {
   return (
     <Container className="py-10">
       <Title className="text-center text-4xl text-[#7B3F00] font-bold">
-        {title}
+        {selectedTab}
       </Title>
       <p className="text-center mt-2 text-gray-500">
         Pellentesque massa placerat duis ultricies lacus sit sed.
@@ -92,17 +91,18 @@ const ProductCollection = ({ cx, ct, title }: ProductCollectionProps) => {
         </div>
       ) : products.length ? (
         <>
-          {/* Swiper */}
+          {/* Swiper with Grid (2 hàng) */}
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Grid]}
             navigation
             spaceBetween={16}
+            grid={{ rows: 2, fill: "row" }}
             breakpoints={{
               0: { slidesPerView: 2 },
-              640: { slidesPerView: 3 },
+              640: { slidesPerView: 2 },
               768: { slidesPerView: 3 },
               1024: { slidesPerView: 4 },
-              1280: { slidesPerView: 5 },
+              1280: { slidesPerView: 4 },
             }}
             className="mt-10"
           >
@@ -120,7 +120,7 @@ const ProductCollection = ({ cx, ct, title }: ProductCollectionProps) => {
           </Swiper>
 
           {/* See All */}
-          {products.length > 5 && (
+          {products.length > 8 && (
             <div className="text-center mt-8">
               <Link
                 href={`/shop?variant=${encodeURIComponent(selectedTab)}`}
