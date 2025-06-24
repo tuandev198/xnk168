@@ -23,7 +23,7 @@ export default function Footer() {
             </p>
             <p className="mt-2 flex items-center">
               <span className="mr-2">📞</span>
-              Hotline: +84 901 36 6488 - Quang <br /> Fax: +84 938 255 328 - Tiến
+              Fax: +84 938 255 328 - Tiến
             </p>
             <p className="mt-2 flex items-center">
               <span className="mr-2">✉️</span>
