@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { FaPhoneAlt } from "react-icons/fa";
+
 // 0061ff
 const Header = () => {
   return (
@@ -13,16 +15,21 @@ const Header = () => {
 
         {/* Menu: luôn nằm 1 dòng, không scroll, không xuống dòng */}
         <div className="flex flex-nowrap justify-center gap-[6px]">
-          {["Tin tức", "Tuyển dụng","Tiếng Việt", "English"].map((item, index, array) => (
-            <a
-              key={item}
-              href="#"
-              className={`px-[6px] py-[2px] whitespace-nowrap ${
+          {[
+            { label: "Tin tức", href: "/blog" },
+            { label: "Tuyển dụng", href: "/tuyen-dung" },
+            { label: "Tiếng Việt", href: "/vi" },
+            { label: "English", href: "/en" },
+          ].map((item, index, array) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={`px-[6px] py-[2px] whitespace-nowrap hover:underline ${
                 index !== array.length - 1 ? "border-r border-white" : ""
               }`}
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
         </div>
       </div>
