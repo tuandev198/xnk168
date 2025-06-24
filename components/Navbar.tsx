@@ -61,10 +61,15 @@ const Navbar = () => {
     <nav className="bg-white shadow-md z-50 relative">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <div className="flex items-center gap-6">
-          <Image src="/images/logo628.png" alt="logo" width={70} height={70} />
-          <Image src="/images/628ab.png" alt="logo2" width={70} height={70} />
-        </div>
+       <div className="flex items-center gap-6">
+  <Link href="/">
+    <Image src="/images/logo628.png" alt="logo" width={70} height={70} />
+  </Link>
+  <Link href="/">
+    <Image src="/images/628ab.png" alt="logo2" width={70} height={70} />
+  </Link>
+</div>
+
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex gap-8 text-base font-medium">

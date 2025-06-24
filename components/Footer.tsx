@@ -1,6 +1,5 @@
 // components/Footer.tsx
 import Image from "next/image";
-import Logo from "./Logo";
 import FooterTop from "./FooterTop";
 
 export default function Footer() {
@@ -55,9 +54,20 @@ export default function Footer() {
           {/* Cột 3 - Kết nối */}
           <div>
             <h2 className="text-xl font-bold mb-4">KẾT NỐI VỚI CHÚNG TÔI</h2>
-            <div className="rounded overflow-hidden shadow-lg w-fit">
-              <Logo />
-            </div>
+          <div className="flex items-center space-x-4 rounded overflow-hidden shadow-lg w-fit">
+  <Image
+    src="/images/logo628.png"
+    alt="Đã thông báo bộ công thương"
+    width={90}
+    height={80}
+  />
+  <Image
+    src="/images/628ab.png"
+    alt="Đã thông báo bộ công thương"
+    width={120}
+    height={80}
+  />
+</div>
           </div>
         </div>
 
