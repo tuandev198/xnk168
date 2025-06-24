@@ -147,13 +147,10 @@
 
 body {
   font-family: var(--font-poppins);
-  background: #0061ff;
+  background: #0648ff;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 
-.bg-neutral-950{
-  background: oklch(0.52 0.28 263.84);
-}

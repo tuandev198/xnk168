@@ -35,18 +35,6 @@ export const productType = defineType({
       type: "blockContent",
     }),
     defineField({
-      name: "price", 
-      title: "Price",
-      type: "number",
-      validation: (Rule) => Rule.required().min(0),
-    }),
-    defineField({
-      name: "discount",
-      title: "Discount",
-      type: "number",
-      validation: (Rule) => Rule.required().min(0),
-    }),
-    defineField({
       name: "categories",
       title: "Categories",
       type: "array",
