@@ -10,7 +10,7 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-2">
           <span className="whitespace-nowrap">📧 CONTACT</span>
           <FaPhoneAlt className="text-xs" />
-          <span className="whitespace-nowrap">+84 0901366488 Quang</span>
+          <span className="whitespace-nowrap">+84 0901366488 Tiến</span>
         </div>
 
         {/* Menu: luôn nằm 1 dòng, không scroll, không xuống dòng */}

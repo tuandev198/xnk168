@@ -25,7 +25,7 @@ const menuItems = [
   },
   {
     title: "CONTACT",
-    href: "/lien-he",
+    href: "/contact",
     submenu: [
       { title: "Send Feedback", href: "/phan-hoi" },
       { title: "Business Consultation", href: "/tu-van" },
@@ -33,7 +33,7 @@ const menuItems = [
   },
   {
     title: "ABOUT US",
-    href: "/ve-chung-toi",
+    href: "/work",
     submenu: [
       { title: "Brand Story", href: "https://facebook.com", target: "_blank" },
       { title: "Certifications", href: "https://zalo.me", target: "_blank" },
@@ -43,7 +43,7 @@ const menuItems = [
   },
   {
     title: "FEEDBACK",
-    href: "/phan-hoi",
+    href: "/wishlist",
     submenu: [],
   },
 ];
