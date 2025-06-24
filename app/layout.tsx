@@ -28,7 +28,7 @@ export const metadata = {
   authors: [{ name: "xuatnhapkhau628", url: "https://www.xuatnhapkhau628.com" }],
   metadataBase: new URL("https://www.xuatnhapkhau628.com"),
   openGraph: {
-    title: "Xnk628 - Logistics Cá Khô & Ớt Khô - Blog Xuất Nhập Khẩu Thực Tế",
+    title: "Xnk628 - Logistics Cá Khô & Ớt Khô -  Xuất Nhập Khẩu 628 ",
     description:
       "Tìm hiểu sâu về chuỗi cung ứng, logistics quốc tế, kinh nghiệm xuất khẩu cá khô, ớt khô từ Việt Nam ra thế giới.",
     url: "https://www.xuatnhapkhau628.com",
