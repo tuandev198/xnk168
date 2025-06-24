@@ -1,9 +1,9 @@
 // next.config.ts
 import type { NextConfig } from "next";
-const { i18n } = require("./next-i18next.config");
+// const { i18n } = require("./next-i18next.config");
 
 const nextConfig: NextConfig = {
-  i18n, // <- ✅ Thêm dòng này để kích hoạt i18n
+  // i18n, // <- ✅ Thêm dòng này để kích hoạt i18n
 
   images: {
     remotePatterns: [
