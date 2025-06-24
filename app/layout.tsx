@@ -26,7 +26,7 @@ export const metadata = {
     "blog logistics thực tế",
   ],
   authors: [{ name: "xuatnhapkhau628", url: "https://www.xuatnhapkhau628.com" }],
-  metadataBase: new URL("https://www.xuatnhapkhau628.com" ), // thay bằng domain thực tế
+  metadataBase: new URL("https://www.xuatnhapkhau628.com"),
   openGraph: {
     title: "Xnk628 - Logistics Cá Khô & Ớt Khô - Blog Xuất Nhập Khẩu Thực Tế",
     description:
@@ -35,7 +35,7 @@ export const metadata = {
     siteName: "XNK628",
     images: [
       {
-        url: "/image/og-image.jpg", // ảnh preview khi chia sẻ
+        url: "/image/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Xnk628 - Logistics về xuất khẩu cá khô, ớt khô",
@@ -44,7 +44,14 @@ export const metadata = {
     locale: "vi_VN",
     type: "website",
   },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 };
+
 
 
 interface LayoutProps {
