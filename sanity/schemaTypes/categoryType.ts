@@ -3,7 +3,7 @@ import { TagIcon } from "@sanity/icons";
 
 export const categoryType = defineType({
   name: "category",
-  title: "Category",
+  title: "Category (Tên danh mục)",
   type: "document",
   icon: TagIcon,
   fields: [

@@ -3,7 +3,7 @@ import { defineField, defineType } from "sanity";
 
 export const addressType = defineType({
   name: "address",
-  title: "Addresses",
+  title: "Addresses (Địa chỉ)",
   type: "document",
   icon: HomeIcon,
   fields: [

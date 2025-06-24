@@ -3,19 +3,19 @@ import { defineField, defineType } from "sanity";
 
 export const productType = defineType({
   name: "product",
-  title: "Products",
+  title: "Products (Sản phẩm)",
   type: "document",
   icon: TrolleyIcon,
   fields: [
     defineField({
       name: "name",
-      title: "Product Name",
+      title: "Product Name (Tên sản phẩm)",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "slug",
-      title: "Slug",
+      title: "Slug (Slug)",
       type: "slug",
       options: {
         source: "name",
@@ -25,18 +25,18 @@ export const productType = defineType({
     }),
     defineField({
       name: "images",
-      title: "Product Images",
+      title: "Product Images (Ảnh sản phẩm)",
       type: "array",
       of: [{ type: "image", options: { hotspot: true } }],
     }),
     defineField({
       name: "description",
-      title: "description",
+      title: "description (Mô tả)",
       type: "blockContent",
     }),
     defineField({
       name: "categories",
-      title: "Categories",
+      title: "Categories (Danh mục)",
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }],
     }),
@@ -48,7 +48,7 @@ export const productType = defineType({
     // }),
     defineField({
       name: "stock",
-      title: "Stock",
+      title: "Stock (Số lượng)",
       type: "number",
       validation: (Rule) => Rule.min(0),
     }),
@@ -61,7 +61,7 @@ export const productType = defineType({
 
     defineField({
       name: "status",
-      title: "Product Status",
+      title: "Product Status (New, Hot, Sale)",
       type: "string",
       options: {
         list: [
@@ -73,7 +73,7 @@ export const productType = defineType({
     }),
     defineField({
       name: "variant",
-      title: "Product Type",
+      title: "Product Type (Tên loại sản phẩm)",
       type: "string",
       options: {
         list: [
@@ -96,7 +96,7 @@ export const productType = defineType({
     }),
     defineField({
       name: "isFeatured",
-      title: "Featured Product",
+      title: "Featured Product (Tạo sản phẩm nổi bật)",
       type: "boolean",
       description: "Toggle to Featured on or off",
       initialValue: false,

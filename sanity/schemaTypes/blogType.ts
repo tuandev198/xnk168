@@ -3,7 +3,7 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const blogType = defineType({
   name: "blog",
-  title: "Blog",
+  title: "Blog (Tin tức)",
   type: "document",
   icon: DocumentTextIcon,
   fields: [

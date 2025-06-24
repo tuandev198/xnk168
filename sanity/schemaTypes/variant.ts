@@ -3,7 +3,7 @@ import { TagIcon } from "@sanity/icons";
 
 export const variant = defineType({
   name: "namevariant",
-  title: "namevariant",
+  title: "Locale (Phiên bản)",
   type: "document",
   icon: TagIcon,
   fields: [
