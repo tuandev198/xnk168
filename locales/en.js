@@ -26,7 +26,7 @@ const en = {
       dry: "Hàng khô",
       frozen: "Hàng đông lạnh",
       household: "Đồ gia dụng",
-      clean: "Thực phẩm sạch",
+      clean: "Thực phẩm ăn liền",
       send: "Gửi phản hồi",
       consult: "Tư vấn kinh doanh",
       story: "Câu chuyện thương hiệu",
