@@ -28,19 +28,19 @@ const Header = () => {
             href="/blog"
             className="px-[6px] py-[2px] whitespace-nowrap hover:underline border-r border-white"
           >
-            {locale === "vi" ? "Tin tức" : "Blog"}
+            {locale === "en" ? "Tin tức" : "Blog"}
           </Link>
           <Link
             href="/tuyen-dung"
             className="px-[6px] py-[2px] whitespace-nowrap hover:underline border-r border-white"
           >
-            {locale === "vi" ? "Tuyển dụng" : "Careers"}
+            {locale === "en" ? "Tuyển dụng" : "Careers"}
           </Link>
           <button
             onClick={toggleLanguage}
             className="px-[6px] py-[2px] whitespace-nowrap hover:underline"
           >
-            {locale === "vi" ? "English" : "Tiếng Việt"}
+            {locale === "vi" ? "Tiếng Việt" : "English"}
           </button>
         </div>
       </div>

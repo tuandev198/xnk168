@@ -1,78 +1,80 @@
 const vi = {
-  greeting: "Xin chào",
-  language: "Ngôn ngữ",
-  switch_to_en: "Chuyển sang Tiếng Anh",
-  product_catalog: "Danh mục sản phẩm",
+
+
+
+    greeting: "Hello",
+  language: "Language",
+  switch_to_vi: "Switch to Vietnamese",
+
+  product_catalog: "Product Catalog",
   categories: {
-    que: "QUẾ",
-    ot: "ỚT HIỂM",
-    hoahoi: "BÔNG HỒI",
-    thaoqua: "THẢO QUẢ",
-    sa: "SẢ",
-    lachuoi: "LÁ CHUỐI",
-    mia: "MÍA",
-    bun: "BÚN",
-    banhtrang: "BÁNH TRÁNG",
-    chanhday: "CHANH DÂY",
+    que: "Cinnamon",
+    ot: "Chili",
+    hoahoi: "Star Anise",
+    thaoqua: "Black Cardamom",
+    sa: "Lemongrass",
+    lachuoi: "Banana Leaf",
+    mia: "Sugarcane",
+    bun: "Rice Noodles",
+    banhtrang: "Rice Paper",
+    chanhday: "Passion Fruit",
   },
-  nav: {
-    home: "Trang chủ",
-    products: "Sản phẩm",
-    contact: "Liên hệ",
-    about: "Về chúng tôi",
-    feedback: "Góp ý",
+   nav: {
+    home: "Home",
+    products: "Products",
+    contact: "Contact",
+    about: "About Us",
+    feedback: "Feedback",
     submenu: {
-      dry: "Hàng khô",
-      frozen: "Hàng đông lạnh",
-      household: "Đồ gia dụng",
-      clean: "Thực phẩm sạch",
-      send: "Gửi phản hồi",
-      consult: "Tư vấn kinh doanh",
-      story: "Câu chuyện thương hiệu",
-      cert: "Chứng nhận",
-      award: "Giải thưởng",
-      intro: "Giới thiệu doanh nghiệp",
+      dry: "Dry Goods",
+      frozen: "Frozen Goods",
+      household: "Household Goods",
+      clean: "Clean Food",
+      send: "Send Feedback",
+      consult: "Business Consultation",
+      story: "Brand Story",
+      cert: "Certifications",
+      award: "Awards",
+      intro: "Business Introduction",
     },
   },
-  whyChooseUs: {
-    title: "Tại sao chọn chúng tôi?",
-    description: "Với những nghệ nhân tận tâm và nhân viên tài năng cùng những câu chuyện làm bánh đầy cảm hứng, Binh Vinh là lựa chọn dành cho những người đam mê hương vị món ăn ngon.",
+   whyChooseUs: {
+    title: "Why choose us?",
+    description: "With dedicated artisans and talented staff along with inspiring baking stories, Binh Vinh is the choice for those who are passionately in love with the taste of delicious dishes.",
     benefits: [
       {
-        title: "Giá cả phải chăng",
-        desc: "Cam kết cung cấp sản phẩm có nguồn gốc rõ ràng và kiểm soát chất lượng.",
+        title: "Affordable Prices",
+        desc: "Committed to providing products with traceable and controlled quality.",
       },
       {
-        title: "Hương vị tinh tế",
-        desc: "Nguyên liệu được lựa chọn kỹ càng ở giai đoạn tươi ngon nhất.",
+        title: "Exquisite Flavor",
+        desc: "Ingredients are carefully selected at their freshest stage.",
       },
       {
-        title: "Sản phẩm chất lượng cao",
-        desc: "Đảm bảo nguồn gốc sản phẩm được kiểm soát nghiêm ngặt và truy xuất được.",
+        title: "High-Quality Products",
+        desc: "Guaranteeing strictly controlled and traceable product origins.",
       },
     ],
   },
    bestProducts: {
-    title: "Sản phẩm bán chạy",
+    title: "Product Catalog",
     description: "Pellentesque massa placerat duis ultricies lacus sit sed.",
-    categories: ["Hạt khô", "Gia vị cay"],
-    saleLabel: "Giảm Giá",
+    categories: ["Dried seeds", "Spicy Masalas"],
+    saleLabel: "Sale",
     products: [
-      { name: "Sả", price: 197, oldPrice: 300, sale: true, imageUrl: '/images/sa.jpg', link:"/shop"},
-  { name: "Lá Chuối", price: 969, oldPrice: 1000, sale: true , imageUrl: '/images/lachuoi.jpg', link:"/shop" },
- 
-  { name: "Bún", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/bun.jpg', link:"/shop"},
-  { name: "Bánh Tráng", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/banhtrang.jpg', link:"/shop"},
-  { name: "Rau Mùi", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/chanhday.jpg' , link:"/shop"},
-  { name: "Quế", price: 199, oldPrice: 405, sale: true, imageUrl: '/images/QUE.jpg', link:"/shop" },
-  { name: "Ớt", price: 289, sale: false, imageUrl: '/images/OT.jpg', link:"/shop" },
-  { name: "Hoa Hồi", price: 969, oldPrice: 1000, sale: true , imageUrl: '/images/HOAHOI.jpg' , link:"/shop"},
-  { name: "Thảo Quả", price: 289, sale: false , imageUrl: '/images/THAOQUA.jpg', link:"/shop"},
-  
-   { name: "Mía", price: 289, sale: false, imageUrl: '/images/mia.jpg', link:"/shop" },
-]
-
-
+        { name: "Banana Leaf", price: 969, oldPrice: 1000, sale: true , imageUrl: '/images/lachuoi.jpg', link:"/shop"},
+     
+      { name: "Rice Noodles", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/bun.jpg', link:"/shop"},
+      { name: "Rice Paper", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/banhtrang.jpg', link:"/shop"},
+       { name: "Coriander", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/chanhday.jpg', link:"/shop"},
+      { name: "Cinnamon", price: 199, oldPrice: 405, sale: true, imageUrl: '/images/QUE.jpg', link:"/shop" },
+      { name: "Chili", price: 289, sale: false, imageUrl: '/images/OT.jpg', link:"/shop" },
+      { name: "Star Anise", price: 969, oldPrice: 1000, sale: true , imageUrl: '/images/HOAHOI.jpg', link:"/shop"},
+      { name: "Black Cardamom", price: 289, sale: false , imageUrl: '/images/THAOQUA.jpg', link:"/shop"},
+      { name: "Lemongrass", price: 197, oldPrice: 300, sale: true, imageUrl: '/images/sa.jpg', link:"/shop" },
+    
+        { name: "Sugarcane", price: 289, sale: false, imageUrl: '/images/mia.jpg' , link:"/shop"},
+    ],
   },
 };
 export default vi;
