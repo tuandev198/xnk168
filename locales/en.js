@@ -59,17 +59,17 @@ const en = {
     categories: ["Hạt khô", "Gia vị cay"],
     saleLabel: "Giảm Giá",
     products: [
-      { name: "Sả", price: 197, oldPrice: 300, sale: true, imageUrl: '/images/sa.jpg', link:"/shop"},
-  { name: "Lá Chuối", price: 969, oldPrice: 1000, sale: true , imageUrl: '/images/lachuoi.jpg', link:"/shop" },
+      { name: "Sả", price: 197, oldPrice: 300, sale: true, imageUrl: '/images/sa.jpg', link:"/shop?shop=frozen"},
+  { name: "Lá Chuối", price: 969, oldPrice: 1000, sale: true , imageUrl: '/images/lachuoi.jpg', link:"/shop?shop=banana" },
  
-  { name: "Bún", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/bun.jpg', link:"/shop"},
-  { name: "Bánh Tráng", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/banhtrang.jpg', link:"/shop"},
-  { name: "Nước Chanh Dây", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/chanhday.jpg' , link:"/shop"},
-  { name: "Thảo Quả", price: 199, oldPrice: 405, sale: true, imageUrl: '/images/QUE.jpg', link:"/shop" },
-  { name: "Ớt", price: 289, sale: false, imageUrl: '/images/OT.jpg', link:"/shop" },
-  { name: "Hoa Hồi", price: 289, sale: false , imageUrl: '/images/THAOQUA.jpg', link:"/shop"},
+  { name: "Bún", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/bun.jpg', link:"/shop?shop=noodle"},
+  { name: "Bánh Tráng", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/banhtrang.jpg', link:"/shop?shop=ricepaper"},
+  { name: "Nước Chanh Dây", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/chanhday.jpg' , link:"/shop?shop=passion"},
+  { name: "Thảo Quả", price: 199, oldPrice: 405, sale: true, imageUrl: '/images/QUE.jpg', link:"/shop?shop=cardamom"},
+  { name: "Ớt", price: 289, sale: false, imageUrl: '/images/OT.jpg', link:"/shop?shop=chilli" },
+  { name: "Hoa Hồi", price: 289, sale: false , imageUrl: '/images/THAOQUA.jpg', link:"/shop?shop=anise"},
   
-   { name: "Mía", price: 289, sale: false, imageUrl: '/images/mia.jpg', link:"/shop" },
+   { name: "Mía", price: 289, sale: false, imageUrl: '/images/mia.jpg', link:"/shop?shop=sugarcane"},
 ]
 
 

@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -9,7 +7,9 @@ import {
 } from "../ui/accordion";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/router";
+
+
 
 const CategoryList = ({
   selectedCategory,
@@ -18,34 +18,19 @@ const CategoryList = ({
 }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
-  // ✅ Dùng hooks từ next/navigation
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const router = useRouter();
-
   useEffect(() => {
-    const queryCategory = searchParams.get("shop");
-    if (queryCategory) {
-      setSelectedCategory(queryCategory.toLowerCase());
-    }
-  }, [searchParams, setSelectedCategory]);
-
-  useEffect(() => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (selectedCategory) {
-      params.set("shop", selectedCategory);
-    } else {
-      params.delete("shop");
-    }
-    router.replace(`${pathname}?${params.toString()}`);
-  }, [selectedCategory]);
-
-  // Còn lại giữ nguyên phần xử lý isMobile và render accordion...
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const groupedCategories = useMemo(() => {
     const map = new Map();
     categories.forEach(({ variant, categories: cats }) => {
+      console.log(variant)
       if (!map.has(variant)) {
         map.set(variant, new Set());
       }
@@ -60,6 +45,7 @@ const CategoryList = ({
       })),
     }));
   }, [categories]);
+
 
   const accordionContent = (
     <Accordion
@@ -95,7 +81,7 @@ const CategoryList = ({
                     <Label
                       htmlFor={inputId}
                       className={`break-words text-wrap ${
-                        selectedCategory === item.key.toLowerCase()
+                        selectedCategory === item.key
                           ? "font-semibold text-shop_dark_green"
                           : "font-normal"
                       }`}
