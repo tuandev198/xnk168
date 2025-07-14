@@ -28,6 +28,7 @@ const CategoryList = ({
   const groupedCategories = useMemo(() => {
     const map = new Map();
     categories.forEach(({ variant, categories: cats }) => {
+      console.log(variant)
       if (!map.has(variant)) {
         map.set(variant, new Set());
       }
@@ -42,6 +43,7 @@ const CategoryList = ({
       })),
     }));
   }, [categories]);
+
 
   const accordionContent = (
     <Accordion

@@ -15,7 +15,7 @@ const Shop = () => {
   const brandParams = searchParams?.get("brand");
   const categoryParams = searchParams?.get("category");
   const [products, setProducts] = useState([]);
-const [categories, setProductss] = useState([]);
+  const [categories, setProductss] = useState([]);
   const [loading, setLoading] = useState(false);
 
  
@@ -71,11 +71,9 @@ const [categories, setProductss] = useState([]);
         minPrice = min;
         maxPrice = max;
       }
-      const query = ` 
+        const query = ` 
       *[_type == 'product' 
         && (!defined($selectedCategory) || references(*[_type == "category" && slug.current == $selectedCategory]._id))
-        && (!defined($selectedBrand) || references(*[_type == "brand" && slug.current == $selectedBrand]._id))
-        && price >= $minPrice && price <= $maxPrice
       ] 
       | order(name asc) {
         ...,"categories": categories[]->title

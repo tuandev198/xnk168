@@ -85,7 +85,7 @@ export const productType = defineType({
   { title: "Cooking Oil, Sauces, Spices (Dầu ăn, Nước chấm, Gia vị)", value: "Cooking Oil, Sauces, Spices" },
   { title: "Noodles, Vermicelli, Porridge, Pho (Mì, Bún, Cháo, Phở)", value: "Noodles, Vermicelli, Porridge, Pho" },
   { title: "Ice Cream, Yogurt (Kem, Sữa chua)", value: "Ice Cream, Yogurt" },
-  { title: "All Kinds of Candies and Snacks (Kẹo và đồ ăn vặt các loại)", value: "Kẹo và đồ ăn vặt các loại" },
+  { title: "All Kinds of Candies and Snacks (Kẹo và đồ ăn vặt các loại)", value: "All Kinds of Candies and Snacks" },
   { title: "Personal Care (Chăm sóc cá nhân)", value: "Personal Care" },
   { title: "Household Cleaning (Vệ sinh gia đình)", value: "Household Cleaning" },
   { title: "Mother and Baby Products (Đồ dùng mẹ và bé)", value: "Mother and Baby Products" },
