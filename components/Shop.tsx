@@ -18,7 +18,7 @@ const Shop = () => {
 const [categories, setProductss] = useState([]);
   const [loading, setLoading] = useState(false);
 
-
+ 
 
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [itemsPerPage, setItemsPerPage] = useState<number>(9);

@@ -10,13 +10,13 @@ interface ContactItemData {
 
 const data: ContactItemData[] = [
   {
-    title: "Visit Us",
-    subtitle: "7A Vo Van Bich Street, Binh My Ward, Cu Chi District, Ho Chi Minh City, Vietnam",
+    title: "Địa chỉ",
+    subtitle: "Địa chỉ: 7A Võ Văn Bích, Ấp 9, Xã Bình Mỹ, TP. HCM",
     icon: <MapPin className="h-5 w-5" />,
     color: "text-blue-600", // màu xanh dương
   },
   {
-    title: "Call Us",
+    title: "Call",
     subtitle: (
       <>
         +84 901366488 (Quang)
@@ -34,7 +34,7 @@ const data: ContactItemData[] = [
     color: "text-amber-500", // màu cam
   },
   {
-    title: "Email Us",
+    title: "Email",
     subtitle: "ctytnhhsxdvtmxnk628@gmail.com",
     icon: <Mail className="h-5 w-5" />,
     color: "text-red-500", // màu đỏ

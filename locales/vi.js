@@ -67,10 +67,9 @@ const vi = {
       { name: "Rice Noodles", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/bun.jpg', link:"/shop"},
       { name: "Rice Paper", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/banhtrang.jpg', link:"/shop"},
        { name: "Coriander", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/chanhday.jpg', link:"/shop"},
-      { name: "Cinnamon", price: 199, oldPrice: 405, sale: true, imageUrl: '/images/QUE.jpg', link:"/shop" },
+      { name: " Black Cardamom", price: 199, oldPrice: 405, sale: true, imageUrl: '/images/QUE.jpg', link:"/shop" },
       { name: "Chili", price: 289, sale: false, imageUrl: '/images/OT.jpg', link:"/shop" },
-      { name: "Star Anise", price: 969, oldPrice: 1000, sale: true , imageUrl: '/images/HOAHOI.jpg', link:"/shop"},
-      { name: "Black Cardamom", price: 289, sale: false , imageUrl: '/images/THAOQUA.jpg', link:"/shop"},
+      { name: "Cinnamon", price: 289, sale: false , imageUrl: '/images/THAOQUA.jpg', link:"/shop"},
       { name: "Lemongrass", price: 197, oldPrice: 300, sale: true, imageUrl: '/images/sa.jpg', link:"/shop" },
     
         { name: "Sugarcane", price: 289, sale: false, imageUrl: '/images/mia.jpg' , link:"/shop"},

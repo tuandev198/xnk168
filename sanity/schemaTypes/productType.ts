@@ -70,14 +70,14 @@ export const productType = defineType({
           { title: "Sale", value: "sale" },
         ],
       },
-    }),
+    }), 
     defineField({
       name: "variant",
       title: "Product Type (Tên loại sản phẩm)",
       type: "string",
       options: {
         list: [
-           { title: "Gadget (Thịt, Cá, Trứng, Hải sản)", value: "TMeat, Fish, Eggs, Seafood" },
+           { title: "Gadget (Thịt, Cá, Trứng, Hải sản)", value: "Thịt, Cá, Trứng, Hải sản" },
   { title: "Vegetables, Tubers, Mushrooms, Fruits (Rau, Củ, Nấm, Trái cây)", value: "Vegetables, Tubers, Mushrooms, Fruits" },
   { title: "Beer, Soft Drinks (Bia, Nước ngọt)", value: "Beer, Soft Drinks" },
   { title: "All Kinds of Milk (Các loại sữa)", value: "All Kinds of Milk" },
@@ -85,7 +85,7 @@ export const productType = defineType({
   { title: "Cooking Oil, Sauces, Spices (Dầu ăn, Nước chấm, Gia vị)", value: "Cooking Oil, Sauces, Spices" },
   { title: "Noodles, Vermicelli, Porridge, Pho (Mì, Bún, Cháo, Phở)", value: "Noodles, Vermicelli, Porridge, Pho" },
   { title: "Ice Cream, Yogurt (Kem, Sữa chua)", value: "Ice Cream, Yogurt" },
-  { title: "All Kinds of Candies and Snacks (Kẹo và đồ ăn vặt các loại)", value: "All Kinds of Candies and Snacks" },
+  { title: "All Kinds of Candies and Snacks (Kẹo và đồ ăn vặt các loại)", value: "Kẹo và đồ ăn vặt các loại" },
   { title: "Personal Care (Chăm sóc cá nhân)", value: "Personal Care" },
   { title: "Household Cleaning (Vệ sinh gia đình)", value: "Household Cleaning" },
   { title: "Mother and Baby Products (Đồ dùng mẹ và bé)", value: "Mother and Baby Products" },

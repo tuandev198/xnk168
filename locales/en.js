@@ -65,10 +65,9 @@ const en = {
   { name: "Bún", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/bun.jpg', link:"/shop"},
   { name: "Bánh Tráng", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/banhtrang.jpg', link:"/shop"},
   { name: "Rau Mùi", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/chanhday.jpg' , link:"/shop"},
-  { name: "Quế", price: 199, oldPrice: 405, sale: true, imageUrl: '/images/QUE.jpg', link:"/shop" },
+  { name: "Thảo Quả", price: 199, oldPrice: 405, sale: true, imageUrl: '/images/QUE.jpg', link:"/shop" },
   { name: "Ớt", price: 289, sale: false, imageUrl: '/images/OT.jpg', link:"/shop" },
-  { name: "Hoa Hồi", price: 969, oldPrice: 1000, sale: true , imageUrl: '/images/HOAHOI.jpg' , link:"/shop"},
-  { name: "Thảo Quả", price: 289, sale: false , imageUrl: '/images/THAOQUA.jpg', link:"/shop"},
+  { name: "Quế", price: 289, sale: false , imageUrl: '/images/THAOQUA.jpg', link:"/shop"},
   
    { name: "Mía", price: 289, sale: false, imageUrl: '/images/mia.jpg', link:"/shop" },
 ]
