@@ -18,7 +18,7 @@ export default function Footer() {
             <p className="mt-4 flex items-start">
               <span className="mr-2">🏠</span>
               <span>
-                Địa chỉ: Lô IV-8 đường số 4, khu công nghiệp Tân Bình, Phường Tây Thạnh, Quận Tân Phú, Thành phố Hồ Chí Minh.
+                Địa chỉ: 7A Võ Văn Bích, Ấp 9, Xã Bình Mỹ, TP. HCM
               </span>
             </p>
             <p className="mt-2 flex items-center">
