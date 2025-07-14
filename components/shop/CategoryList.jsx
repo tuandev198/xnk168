@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState, useMemo } from "react";
 import {
   Accordion,
@@ -14,34 +13,48 @@ import { useSearchParams, usePathname, useRouter } from "next/navigation";
 const CategoryList = ({ selectedCategory, setSelectedCategory, categories }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [hydrated, setHydrated] = useState(false); // ✅ Thêm state hydrate
+  const [hydrated, setHydrated] = useState(false);
 
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
 
-  // ✅ Đảm bảo chỉ chạy sau khi client đã hydrate
+  // ✅ Đảm bảo chỉ chạy sau khi client đã mount
   useEffect(() => {
     setHydrated(true);
   }, []);
 
+  // ✅ Sync state từ URL vào app (chỉ khi khác state)
   useEffect(() => {
     if (!hydrated) return;
-    const currentParam = searchParams.get("shop")?.toLowerCase() || null;
-    if (currentParam !== selectedCategory) {
-      setSelectedCategory(currentParam);
+    const urlCategory = searchParams.get("shop")?.toLowerCase() || null;
+    if (urlCategory !== selectedCategory) {
+      setSelectedCategory(urlCategory);
     }
   }, [searchParams, hydrated]);
 
+  // ✅ Cập nhật URL nếu người dùng chọn khác với URL hiện tại
   useEffect(() => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (selectedCategory) {
-      params.set("shop", selectedCategory);
-    } else {
-      params.delete("shop");
+    if (!hydrated) return;
+
+    const currentParam = searchParams.get("shop")?.toLowerCase() || null;
+
+    // ⚠️ Chỉ update URL nếu khác
+    if (selectedCategory !== currentParam) {
+      const params = new URLSearchParams(searchParams.toString());
+      if (selectedCategory) {
+        params.set("shop", selectedCategory);
+      } else {
+        params.delete("shop");
+      }
+
+      // ⚠️ SHALLOW replace (không reload lại trang)
+      router.replace(`${pathname}?${params.toString()}`, { scroll: false });
     }
-    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   }, [selectedCategory]);
+
+  // ⏩ Phần render giữ nguyên...
+
 
   // Còn lại giữ nguyên phần xử lý isMobile và render accordion...
 

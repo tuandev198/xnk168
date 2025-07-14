@@ -22,9 +22,7 @@ const Shop = () => {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [itemsPerPage, setItemsPerPage] = useState<number>(9);
   const [sortOption, setSortOption] = useState<string>("featured");
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(
-    categoryParams || null
-  );
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedBrand, setSelectedBrand] = useState<string | null>(
     brandParams || null
   );
