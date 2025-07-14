@@ -5,71 +5,71 @@ import Link from "next/link";
 import Image from "next/image";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
-const menuItems = [
-  {
-    title: "HOME",
-    href: "/",
-    submenu: [],
-  },
-  {
-    title: "PRODUCTS",
-    href: "/shop",
-    submenu: [
-      { title: "All Kinds of Milk", href: "/shop?=All Kinds of Milk" },
-      { title: "Rice, Flour, Dried Goods", href: "/shop?=luon-nhat" },
-      { title: "Personal Care", href: "/shop?=luon-nhat" },
-      { title: "Household Cleaning", href: "/shop?=luon-nhat" },
-      { title: "Household Items", href: "/shop?=luon-nhat" },
-      { title: "Beer, Soft Drinks", href: "/shop?=luon-nhat" },
-    ],
-  },
-  {
-    title: "CONTACT",
-    href: "/contact",
-    submenu: [
-      { title: "Send Feedback", href: "/phan-hoi" },
-      { title: "Business Consultation", href: "/tu-van" },
-    ],
-  },
-  {
-    title: "ABOUT US",
-    href: "/work",
-    submenu: [
-      { title: "Brand Story", href: "https://facebook.com", target: "_blank" },
-      { title: "Certifications", href: "https://zalo.me", target: "_blank" },
-      { title: "Awards", href: "https://zalo.me", target: "_blank" },
-      { title: "Business Introduction", href: "https://zalo.me", target: "_blank" },
-    ],
-  },
-  {
-    title: "FEEDBACK",
-    href: "/wishlist",
-    submenu: [],
-  },
-];
-
+import { useLanguage } from "../context/LanguageContext"; // ✅
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { dictionary } = useLanguage(); // ✅
 
   const toggleSubmenu = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // Sử dụng dictionary thay vì static title
+  const menuItems = [
+    {
+      title: dictionary.nav.home,
+      href: "/",
+      submenu: [],
+    },
+    {
+      title: dictionary.nav.products,
+      href: "/shop",
+      submenu: [
+        { title: dictionary.nav.submenu.dry, href: "/shop?=dry" },
+        { title: dictionary.nav.submenu.frozen, href: "/shop?=frozen" },
+        { title: dictionary.nav.submenu.household, href: "/shop?=household" },
+        { title: dictionary.nav.submenu.clean, href: "/shop?=clean" },
+      ],
+    },
+    {
+      title: dictionary.nav.contact,
+      href: "/contact",
+      submenu: [
+        { title: dictionary.nav.submenu.send, href: "/contact" },
+        { title: dictionary.nav.submenu.consult, href: "/contact" },
+      ],
+    },
+    {
+      title: dictionary.nav.about,
+      href: "/work",
+      submenu: [
+        { title: dictionary.nav.submenu.story, href: "/work" },
+        { title: dictionary.nav.submenu.cert, href: "/work" },
+        { title: dictionary.nav.submenu.award, href: "/work"},
+        { title: dictionary.nav.submenu.intro, href: "/work"},
+      ],
+    },
+    {
+      title: dictionary.nav.feedback,
+      href: "/wishlist",
+      submenu: [],
+    },
+  ];
+
   return (
     <nav className="bg-white shadow-md z-50 relative">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-       <div className="flex items-center gap-6">
-  <Link href="/">
-    <Image src="/images/logo628.png" alt="logo" width={70} height={70} />
-  </Link>
-  <Link href="/">
-    <Image src="/images/628ab.png" alt="logo2" width={70} height={70} />
-  </Link>
-</div>
-
+        <div className="flex items-center gap-6">
+          <Link href="/">
+            <Image src="/images/logo628.png" alt="logo" width={70} height={70} />
+          </Link>
+          <Link href="/">
+            <Image src="/images/628ab.png" alt="logo2" width={70} height={70} />
+          </Link>
+        </div>
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex gap-8 text-base font-medium">
@@ -140,7 +140,6 @@ const Navbar = () => {
                   </Link>
                 )}
 
-                {/* Submenu */}
                 <AnimatePresence initial={false}>
                   {openIndex === index && item.submenu.length > 0 && (
                     <motion.ul

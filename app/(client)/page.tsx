@@ -8,7 +8,6 @@ import BannerSlider from "../../components/BannerSlider";
 
 import LatestBlog from "@/components/LatestBlog";
 
-import ProductCategories from "@/components/ProductCategories";
 // import ProductXuiloin from "@/components/ProductXuiloin";
 
 import ProductColextion from "@/components/ProductColextion";
@@ -40,12 +39,13 @@ export default function Home() {
 
             {/* <BannerSlider /> */}
             <Container className="mt-24 sm:mt-32">
-                <ProductCategories />
+                {/*<ProductCategories />*/}
+                <BestProductsSlider />
                 {/* <ProductXuiloin /> */}
                 {/* <ProductColextion cx={"All Kinds of Candies and Snacks"}/> */}
             </Container>
             <WhyChooseUs />
-            <BestProductsSlider />
+            {/* <BestProductsSlider />*/}
             <Clients />
             <Container className="mt-24 sm:mt-32">
             {/* <ProductXuiloin /> */}

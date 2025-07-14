@@ -22,8 +22,6 @@ export default function Footer() {
               </span>
             </p>
             <p className="mt-2 flex items-center">
-              <span className="mr-2">📞</span>
-              Fax: +84 938 255 328 - Tiến
             </p>
             <p className="mt-2 flex items-center">
               <span className="mr-2">✉️</span>
