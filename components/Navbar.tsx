@@ -27,10 +27,10 @@ const Navbar = () => {
       title: dictionary.nav.products,
       href: "/shop",
       submenu: [
-        { title: dictionary.nav.submenu.dry, href: "/shop?=dry" },
-        { title: dictionary.nav.submenu.frozen, href: "/shop?=frozen" },
-        { title: dictionary.nav.submenu.household, href: "/shop?=household" },
-        { title: dictionary.nav.submenu.clean, href: "/shop?=clean" },
+        { title: dictionary.nav.submenu.dry, href: "/shop?shop=fruits" },
+        { title: dictionary.nav.submenu.frozen, href: "/shop?shop=fruits" },
+        { title: dictionary.nav.submenu.household, href: "/shop?shop=fruits" },
+        { title: dictionary.nav.submenu.clean, href: "/shop?shop=fruits" },
       ],
     },
     {

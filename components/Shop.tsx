@@ -9,7 +9,6 @@ import NoProductAvailable from "./NoProductAvailable";
 import ProductCard from "./ProductCard";
 import { Loader2, List, Grid2X2 } from "lucide-react";
 
-
 const Shop = () => {
   const searchParams = useSearchParams();
   const brandParams = searchParams?.get("brand");
@@ -29,7 +28,10 @@ const Shop = () => {
   const [selectedBrand, setSelectedBrand] = useState<string | null>(
     brandParams || null
   );
+
   const [selectedPrice, setSelectedPrice] = useState<string | null>(null);
+
+  
   const fetchProducts = async () => {
     setLoading(true);
     try {
