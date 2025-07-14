@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useMemo } from "react";
+"use client";
+
+import React, { useEffect, useState, useMemo } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -7,30 +9,45 @@ import {
 } from "../ui/accordion";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
-import { useRouter } from "next/router";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
-
-
-const CategoryList = ({
-  selectedCategory,
-  setSelectedCategory,
-  categories,
-}) => {
+const CategoryList = ({ selectedCategory, setSelectedCategory, categories }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [hydrated, setHydrated] = useState(false); // ✅ Thêm state hydrate
+
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // ✅ Đảm bảo chỉ chạy sau khi client đã hydrate
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    setHydrated(true);
   }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    const currentParam = searchParams.get("shop")?.toLowerCase() || null;
+    if (currentParam !== selectedCategory) {
+      setSelectedCategory(currentParam);
+    }
+  }, [searchParams, hydrated]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (selectedCategory) {
+      params.set("shop", selectedCategory);
+    } else {
+      params.delete("shop");
+    }
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  }, [selectedCategory]);
+
+  // Còn lại giữ nguyên phần xử lý isMobile và render accordion...
 
   const groupedCategories = useMemo(() => {
     const map = new Map();
     categories.forEach(({ variant, categories: cats }) => {
-      console.log(variant)
       if (!map.has(variant)) {
         map.set(variant, new Set());
       }
@@ -45,7 +62,6 @@ const CategoryList = ({
       })),
     }));
   }, [categories]);
-
 
   const accordionContent = (
     <Accordion
@@ -81,7 +97,7 @@ const CategoryList = ({
                     <Label
                       htmlFor={inputId}
                       className={`break-words text-wrap ${
-                        selectedCategory === item.key
+                        selectedCategory === item.key.toLowerCase()
                           ? "font-semibold text-shop_dark_green"
                           : "font-normal"
                       }`}
