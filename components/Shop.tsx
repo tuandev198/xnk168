@@ -117,7 +117,7 @@ const Shop = () => {
               <div className="flex items-center gap-1">
                 <span>Paginate by</span>
                 <select value={itemsPerPage} onChange={(e) => setItemsPerPage(Number(e.target.value))} className="border px-2 py-1 rounded-full border-orange-800 text-orange-800">
-                  {[100, 9, 12, 18].map((num) => (
+                  {[100, 12, 18].map((num) => (
                     <option key={num} value={num}>{num}</option>
                   ))}
                 </select>
@@ -163,7 +163,9 @@ const Shop = () => {
                   <p className="font-semibold tracking-wide text-base">Product is loading . . .</p>
                 </div>
               ) : products?.length > 0 ? (
-               <div
+         
+
+                         <div
   className={`grid ${
     viewMode === "grid"
       ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
@@ -171,10 +173,9 @@ const Shop = () => {
   } gap-x-4 gap-y-6`}
 >
   {products.slice(0, itemsPerPage).map((product, index) => (
-    <ProductCard key={product.id || index} product={product} viewMode={viewMode} />
+    <ProductCard key={index} product={product} viewMode={viewMode} />
   ))}
 </div>
-
               ) : (
                 <NoProductAvailable className="bg-white mt-0" />
               )}
