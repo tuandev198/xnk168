@@ -12,19 +12,19 @@ export default function BannerSlider() {
   const slides = [
     {
       id: 1,
-      imageUrl: '/images/banner1.jpg',
+      imageUrl: '/images/bannerkho.jpg',
       title: 'Make your online',
       description: 'Make your online presence a reality with us!',
     },
     {
       id: 2,
-      imageUrl: '/images/banner1.jpg',
+      imageUrl: '/images/banner2.jpg',
       title: 'Creative Solutions',
       description: 'Your digital success starts here.',
     },
     {
       id: 3,
-      imageUrl: '/images/banner1.jpg',
+      imageUrl: '/images/banner3.jpg',
       title: 'Boost Your Brand',
       description: 'Let’s build something great together.',
     },
