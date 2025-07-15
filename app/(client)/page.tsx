@@ -49,11 +49,11 @@ export default function Home() {
             <Clients />
             <Container className="mt-24 sm:mt-32">
             {/* <ProductXuiloin /> */}
-         <ProductColextion cx={"All Kinds of Candies and Snacks"} ct="All Kinds of Milk" title={"TILE A"}/>
+         <ProductColextion cx={"Dried Foods"} ct="Frozen Foods" title={"TILE A"}/>
             </Container>
                 <HomeBanner image={banner_1}/>
                 <Container className="mt-24 sm:mt-32">
-             <ProductColextion cx={"Household Items"} ct="Personal Care" title={"TILE B"}/>
+             <ProductColextion cx={"Frozen Foods"} ct="Dried Foods" title={"TILE B"}/>
             </Container>
             <HomeBanner image={banner_1}/>  
 {/* 
