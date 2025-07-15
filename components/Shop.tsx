@@ -117,7 +117,7 @@ const Shop = () => {
               <div className="flex items-center gap-1">
                 <span>Paginate by</span>
                 <select value={itemsPerPage} onChange={(e) => setItemsPerPage(Number(e.target.value))} className="border px-2 py-1 rounded-full border-orange-800 text-orange-800">
-                  {[100, 12, 18].map((num) => (
+                  {[100].map((num) => (
                     <option key={num} value={num}>{num}</option>
                   ))}
                 </select>
@@ -147,7 +147,7 @@ const Shop = () => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-5 border-orange-800/50">
-          <div className="md:sticky md:top-20 md:self-start md:h-[calc(100vh-160px)] md:overflow-y-auto md:min-w-64 pb-5 border-r-orange-800/50 scrollbar-hide">
+          <div className="">
             <CategoryList
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
@@ -163,19 +163,11 @@ const Shop = () => {
                   <p className="font-semibold tracking-wide text-base">Product is loading . . .</p>
                 </div>
               ) : products?.length > 0 ? (
-         
-
-                         <div
-  className={`grid ${
-    viewMode === "grid"
-      ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
-      : "grid-cols-1"
-  } gap-x-4 gap-y-6`}
->
-  {products.slice(0, itemsPerPage).map((product, index) => (
-    <ProductCard key={index} product={product} viewMode={viewMode} />
-  ))}
-</div>
+                <div className={`grid ${viewMode === "grid" ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-4" : "grid-cols-1"} gap-2.5`}>
+                  {products.slice(0, itemsPerPage).map((product, index) => (
+                    <ProductCard key={index} product={product} viewMode={viewMode} />
+                  ))}
+                </div>
               ) : (
                 <NoProductAvailable className="bg-white mt-0" />
               )}

@@ -81,6 +81,7 @@ const CategoryList = ({ selectedCategory, setSelectedCategory, categories }) => 
       type="multiple"
       className="space-y-2 max-h-[60vh] overflow-y-auto"
     >
+      
       {groupedCategories.map((group) => (
         <AccordionItem key={group.key} value={group.group}>
           <AccordionTrigger className="text-sm font-bold text-left uppercase transition-colors duration-300 data-[state=open]:text-shop_dark_green">
@@ -135,6 +136,7 @@ const CategoryList = ({ selectedCategory, setSelectedCategory, categories }) => 
           </AccordionContent>
         </AccordionItem>
       ))}
+
     </Accordion>
   );
 
@@ -179,7 +181,7 @@ const CategoryList = ({ selectedCategory, setSelectedCategory, categories }) => 
           )}
         </>
       ) : (
-        <div className="mt-4 max-h-[80vh] overflow-y-auto">{accordionContent}</div>
+        <div className=""></div>
       )}
     </div>
   );

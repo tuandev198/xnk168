@@ -46,12 +46,12 @@ export const productType = defineType({
     //   type: "array",
     //   of: [{ type: "reference", to: { type: "namevariant" } }],
     // }),
-    defineField({
-      name: "stock",
-      title: "Stock (Số lượng)",
-      type: "number",
-      validation: (Rule) => Rule.min(0),
-    }),
+   // defineField({
+   //   name: "stock",
+ //     title: "Stock (Số lượng)",
+   //   type: "number",
+    //  validation: (Rule) => Rule.min(0),
+  //  })
     // defineField({
     //   name: "brand",
     //   title: "Brand",
@@ -60,36 +60,16 @@ export const productType = defineType({
     // }),
 
     defineField({
-      name: "status",
-      title: "Product Status (New, Hot, Sale)",
-      type: "string",
-      options: {
-        list: [
-          { title: "New", value: "new" },
-          { title: "Hot", value: "hot" },
-          { title: "Sale", value: "sale" },
-        ],
-      },
-    }), 
-    defineField({
       name: "variant",
       title: "Product Type (Tên loại sản phẩm)",
       type: "string",
       options: {
         list: [
-           { title: "Gadget (Thịt, Cá, Trứng, Hải sản)", value: "Thịt, Cá, Trứng, Hải sản" },
-  { title: "Vegetables, Tubers, Mushrooms, Fruits (Rau, Củ, Nấm, Trái cây)", value: "Vegetables, Tubers, Mushrooms, Fruits" },
-  { title: "Beer, Soft Drinks (Bia, Nước ngọt)", value: "Beer, Soft Drinks" },
-  { title: "All Kinds of Milk (Các loại sữa)", value: "All Kinds of Milk" },
-  { title: "Rice, Flour, Dried Goods (Gạo, Bột, Đồ khô)", value: "Rice, Flour, Dried Goods" },
-  { title: "Cooking Oil, Sauces, Spices (Dầu ăn, Nước chấm, Gia vị)", value: "Cooking Oil, Sauces, Spices" },
-  { title: "Noodles, Vermicelli, Porridge, Pho (Mì, Bún, Cháo, Phở)", value: "Noodles, Vermicelli, Porridge, Pho" },
-  { title: "Ice Cream, Yogurt (Kem, Sữa chua)", value: "Ice Cream, Yogurt" },
-  { title: "All Kinds of Candies and Snacks (Kẹo và đồ ăn vặt các loại)", value: "All Kinds of Candies and Snacks" },
-  { title: "Personal Care (Chăm sóc cá nhân)", value: "Personal Care" },
-  { title: "Household Cleaning (Vệ sinh gia đình)", value: "Household Cleaning" },
-  { title: "Mother and Baby Products (Đồ dùng mẹ và bé)", value: "Mother and Baby Products" },
-  { title: "Household Items (Đồ gia dụng)", value: "Household Items" },
+           { title: "Sản Phẩm Khô (Dried Foods)", value: "Dried Foods" },
+  { title: "Sản Phẩm Đông Lạnh (Frozen Foods)", value: "Frozen Foods" },
+  { title: "Đồ Gia Dụng (Household Products)", value: "Household Products" },
+  { title: "Thực Phẩm Ăn Liền (Instant Foods)", value: "Instant Foods" },
+ 
         ],
       },
     }),
