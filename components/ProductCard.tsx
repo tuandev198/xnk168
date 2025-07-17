@@ -8,7 +8,7 @@ import ProductSideMenu from "./ProductSideMenu";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02] w-full max-w-[200px]">
+    <div className="bg-white shadow-md overflow-hidden transition-transform hover:scale-[1.02] w-full max-w-[200px]">
       <Link href={`/product/${product?.slug?.current}`}>
         {/* Container có aspect-square để luôn vuông */}
         <div className="relative aspect-square w-full">
