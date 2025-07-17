@@ -145,7 +145,7 @@ const Shop = () => {
           </div>
 
           <div className="flex-1 pt-5">
-            <div className="h-[calc(100vh-160px)] overflow-y-auto pr-2 scrollbar-hide">
+            <div className="">
               {loading ? (
                 <div className="p-20 flex flex-col gap-2 items-center justify-center bg-white">
                   <Loader2 className="w-10 h-10 text-orange-800 animate-spin" />
