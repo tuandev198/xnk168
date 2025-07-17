@@ -12,6 +12,7 @@ import { FaRegQuestionCircle } from "react-icons/fa";
 import { FiShare2 } from "react-icons/fi";
 import { RxBorderSplit } from "react-icons/rx";
 import { TbTruckDelivery } from "react-icons/tb";
+import { PortableText } from "@portabletext/react";
 
 const SingleProductPage = async ({
   params,
@@ -20,6 +21,7 @@ const SingleProductPage = async ({
 }) => {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
+
   if (!product) {
     return notFound();
   }
@@ -32,7 +34,18 @@ const SingleProductPage = async ({
         <div className="space-y-1">
           <h2 className="text-2xl font-bold">{product?.name}</h2>
           <p className="text-sm text-gray-600 tracking-wide">
-            {/* {product?.description} */}
+            {product?.description && (
+  <PortableText
+    value={product.description}
+    components={{
+      block: {
+        normal: ({ children }) => (
+          <p className="text-sm text-gray-600 tracking-wide">{children}</p>
+        ),
+      },
+    }}
+  />
+)}
           </p>
           <div className="flex items-center gap-0.5 text-xs">
             {[...Array(5)].map((_, index) => (
