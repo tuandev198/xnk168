@@ -5,6 +5,8 @@ import { LanguageProvider } from "../../context/LanguageContext";
 import Headers from "@/components/Headers";
 import Navbar from "@/components/Navbar";
 
+// app/layout.tsx
+
 
 
 

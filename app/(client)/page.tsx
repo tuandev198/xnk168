@@ -17,6 +17,55 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import BestProductsSlider from "@/components/BestProductsSlider";
 
 
+// app/page.tsx
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Công Ty Xuất Nhập Khẩu 628 - Xuất Nhập Khẩu Nông Sản, Thực Phẩm & Gia Dụng",
+  description:
+    "Chuyên sản xuất và xuất khẩu nông sản đông lạnh, thực phẩm chay, đồ khô, gia dụng... với các thương hiệu uy tín như 7Leaves, Dragonfly, Q’s American Best, Jumbo Elephant.",
+  keywords: [
+    "xuất khẩu Mỹ",
+    "nông sản đông lạnh",
+    "đồ chay",
+    "bánh pía",
+    "gia vị",
+    "gia dụng",
+    "hàng khô",
+    "628",
+    "7Leaves",
+    "Dragonfly",
+    "Jumbo Elephant",
+    "Q’s American Best",
+  ],
+  openGraph: {
+    title: "Công Ty Xuất Nhập Khẩu 628 - Xuất Khẩu Nông Sản & Thực Phẩm",
+    description:
+      "Thành lập năm 2016, Công Ty Xuất Nhập Khẩu 628 là đơn vị xuất khẩu hàng đầu về thực phẩm đông lạnh, đồ chay, hàng khô, gia dụng,... sang thị trường quốc tế như Mỹ.",
+    url: "https://xuatnhapkhau628.com",
+    siteName: "Công Ty Xuất Nhập Khẩu 628",
+    images: [
+      {
+        url: "https://yourdomain.com/images/banner.jpg", // <-- Thay bằng ảnh thực tế
+        width: 1200,
+        height: 630,
+        alt: "Công Ty TNHH 628 Xuất Nhập Khẩu",
+      },
+    ],
+    locale: "vi_VN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Công Ty Xuất Nhập Khẩu 628 - Xuất Khẩu Nông Sản & Thực Phẩm",
+    description:
+      "Thành lập năm 2016, chuyên sản xuất và xuất khẩu nông sản đông lạnh, đồ chay, hàng khô, bánh pía,... sang thị trường Mỹ và quốc tế.",
+    images: ["https://yourdomain.com/images/banner.jpg"], // ảnh 1200x630
+  },
+};
+
+
+
 export default function Home() {
     return (
         <main className="text-black">
