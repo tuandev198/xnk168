@@ -62,12 +62,12 @@ const vi = {
     categories: ["Dried seeds", "Spicy Masalas"],
     saleLabel: "Sale",
     products: [
-        { name: "Banana Leaf", price: 969, oldPrice: 1000, sale: true , imageUrl: '/images/lachuoi.jpg', link:"/shop"},
+        { name: "Banana Leaf", price: 969, oldPrice: 1000, sale: true , imageUrl: '/images/lachuoi.jpg',  link:"/product/sa-cay-frozen-chopped-lemoongass"},
      
-      { name: "Rice Noodles", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/bun.jpg', link:"/shop"},
-      { name: "Rice Paper", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/banhtrang.jpg', link:"/shop"},
-       { name: "Coriander", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/chanhday.jpg', link:"/shop"},
-      { name: " Black Cardamom", price: 199, oldPrice: 405, sale: true, imageUrl: '/images/QUE.jpg', link:"/shop" },
+      { name: "Rice Noodles", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/bun.jpg', link:"/product/la-chuoi-tuoi-banana-leal" },
+      { name: "Rice Paper", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/banhtrang.jpg', link:"/product/bun-bo-hue-rice-vermiceui"},
+       { name: "Coriander", price: 197, oldPrice: 300, sale: true , imageUrl: '/images/chanhday.jpg', link:"/product/banh-trang-cha-gio"},
+      { name: " Black Cardamom", price: 199, oldPrice: 405, sale: true, imageUrl: '/images/QUE.jpg', link:"/product/nuoc-chanh-day-frozen-pure-passion-fruit-juice"},
       { name: "Chili", price: 289, sale: false, imageUrl: '/images/OT.jpg', link:"/shop" },
       { name: "Cinnamon", price: 289, sale: false , imageUrl: '/images/THAOQUA.jpg', link:"/shop"},
       { name: "Lemongrass", price: 197, oldPrice: 300, sale: true, imageUrl: '/images/sa.jpg', link:"/shop" },
