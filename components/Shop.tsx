@@ -104,8 +104,8 @@ const Shop = () => {
         <div className="sticky top-0 z-10 mb-5">
           <div className="flex items-center justify-between flex-wrap gap-3 pb-3">
             <div className="flex gap-2">
-              <h1 className="text-center text-5xl font-bold my-6">
-  SẢN PHẨM{" "}
+              <h2 className="text-center text-4xl text-[#7B3F00] font-bold">
+  {" "}
   {selectedCategory === "driedfoods"
     ? "HÀNG KHÔ"
     : selectedCategory === "frozenfoods"
@@ -114,8 +114,8 @@ const Shop = () => {
     ? "ĐỒ GIA DỤNG"
     : selectedCategory === "instantfoods"
     ? "THỰC PHẨM ĂN LIỀN"
-    : "TẤT CẢ"}
-</h1>
+    : "TẤT CẢ SẢN PHẨM"}
+</h2>
             </div>
             <div className="flex gap-4 items-center">
                 
